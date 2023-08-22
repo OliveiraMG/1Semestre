@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arroz</title>
+</head>
+<body>
+    Qual o tipo de arroz usado?<br>
+    <select id="sel_arroz">
+        <option value="">- Escolha uma opção -</option>
+        <option value="arrozB">Branco</option>
+        <option value="arrozI">Integral</option>
+    </select><br><br>
+    Qual o tempo de cozimento em minutos?<br>
+    <input placeholder="Tempo" id="in_tempo"><br><br>
+    Quantas gramas de sal são utilizadas?<br>
+    <input placeholder="Gramas de sal" id="in_gramas"><br><br>
+    <button onclick="avaliar()">Avaliar arroz</button><br>
+    <div id="div_out"></div>
+    <img id="img1" style="height: 500px;">
+</body>
+</html>
+<script>
+    function avaliar() {
+        var arroz = sel_arroz.value
+        var tempo = Number(in_tempo.value)
+        var gramas = Number(in_gramas.value)
+
+        var Aperfeito = arroz == 'arrozB' && tempo == 10 && gramas <= 10 || arroz == 'arrozI' && tempo == 20 && gramas <= 15
+
+        if (Aperfeito) {
+                div_out.innerHTML = `Arroz perfeito`
+                if (arroz == 'arrozB') {
+                    img1.src = 'https://octoshop.sfo2.digitaloceanspaces.com/lojas/light4you/uploads_produto/arroz-branco-609060b6f0c85.png'
+                } else {
+                    img1.src = 'https://www.santocongelado.com.br/media/catalog/product/cache/1/image/609x405/9df78eab33525d08d6e5fb8d27136e95/a/r/arroz.png'
+                }
+            } else {
+                div_out.innerHTML = `Arroz não está perfeito`
+                img1.src = 'https://noticiasdatv.uol.com.br/media/_versions/erick-jacquin-freezer-bronca-pesadelo-na-cozinha-reproducao-band-min_fixed_large.jpg'
+            }
+        }
+</script>

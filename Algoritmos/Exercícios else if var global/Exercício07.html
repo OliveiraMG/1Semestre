@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economias</title>
+</head>
+<body>
+    Qual o valor que você tem economizado?<br>
+    <input id="in_eco"><br><br>
+    <button onclick="verificar()">Poder de compra</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var eco = Number(in_eco.value)
+        if (eco <= 0) {
+            div_out.innerHTML = `Nada de compras`
+        } else if (eco <= 100) {
+            div_out.innerHTML = `Viajem de ida e volta para Praia Grande<br>`
+        } else if (eco <= 4000) {
+            div_out.innerHTML = `Viajem de ida e volta para Praia Grande<br>
+            Uma boa moto usada<br>`
+        } else {
+            div_out.innerHTML = `Uma boa moto usada<br>
+            Mais alguma bobagem legal<br>`
+        }
+    }
+</script>

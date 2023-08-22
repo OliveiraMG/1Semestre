@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    Qual seu peso?<br>
+    <input id="in_peso"><br><br>
+    Qual sua altura?<br>
+    <input id="in_altura"><br><br>
+    <button onclick="calculoH()">IMC Homem</button><br>
+    <button onclick="calculoM()">IMC Mulher</button>
+    <div id="div_IMC"></div>
+</body>
+</html>
+<script>
+    function calculoH() {
+        var peso = Number(in_peso.value)
+        var altura = Number(in_altura.value)
+        var IMCH = peso / (altura * altura)
+        div_IMC.innerHTML = `O seu IMC é ${IMCH.toFixed(2)}`
+    }
+
+    function calculoM() {
+        var peso = Number(in_peso.value)
+        var altura = Number(in_altura.value)
+        var porcentagem = (peso / (altura * altura)) * 0.1
+        var IMCM = (peso / (altura * altura)) - porcentagem
+        div_IMC.innerHTML = `O seu IMC é ${IMCM.toFixed(2)}`
+    }
+</script>

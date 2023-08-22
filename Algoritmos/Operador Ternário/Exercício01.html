@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    Login: <input type="text" id="in_login"><br>
+    Senha: <input type="password" id="in_senha"><br>
+    Código de segurança: <input type="password" id="in_cod"><br>
+    <Button onclick="entrar()">Entrar</Button>
+</body>
+
+</html>
+
+<script>
+
+    function entrar() {
+        var login = in_login.value
+        var senha = in_senha.value
+        var codigo = Number(in_cod.value)
+
+        var frase = login == 'SPTECH' && senha == 'SCHOOL' && codigo == '595' ? alert('Usuario autenticado com sucesso!') : alert('Falha na autenticação')
+    }
+
+</script>

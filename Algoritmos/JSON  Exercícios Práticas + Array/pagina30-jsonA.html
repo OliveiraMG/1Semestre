@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    /*
+        JSON (JavaScript Object Notation) representa um agrupamento/conjunto de dados que pertencem a um mesmo contexto, com sua sintaxe sendo: 
+        - var nomeJSON = { atributoJSON: valorAtributoJSON }
+
+        No exemplo abaixo, estamos criando o JSON "pessoa", delimitado pelas chaves de abertura e fechamento do objeto {};
+
+        Tudo que estiver entre as chaves, faz parte do JSON, sendo informações pertencentes àquele JSON;
+        - No exemplo abaixo, temos as informações "nome" e "idade", onde todas pertencem ao contexto de "pessoa" (pois estão entre as chaves "{}");
+    */
+    var pessoa = {
+        nome : "JP",
+        idade : 23, 
+    }
+
+    div_mensagem.innerHTML = `Nome: ${pessoa.nome} <br> Idade: ${pessoa.idade}` // acessando informações do JSON "pessoa"
+
+
+
+    /*
+        ESSA SINTAXE ABAIXO NÃO FUNCIONA! 
+        
+            - div_mensagem.innerHTML = `Pessoa: ${pessoa}`
+            - alert(`Pessoa: ${pessoa}`)
+
+        O JS não consegue interpretar objetos para exibí-los, ele vai mostrar [object Object]
+    */
+
+    var nome = "XPTO" // criando variável comum
+    var idade = 123 // criando variável comum
+
+    div_mensagem.innerHTML += `<br><br>var nome: ${nome} <br> var idade: ${idade}`
+
+    /* 
+        Não acontece conflitos, porque os contextos são diferentes
+        No contexto do JSON, deve-se chamar "pessoa.idade", identificando que a informação idade pertence ao JSON
+        No contexto da variável, podemos invocá-la normalmente com "idade"
+    */
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="in_filho" placeholder="nome do filho"><Br>
+    <button onclick="cadastrar()">cadastrar</button>
+    <button onclick="atualizar()">Atualizar família</button><bR>
+    <div id="mostrar"></div>
+</body>
+</html>
+<script>
+    var lista = []
+    function cadastrar(){
+        var nome = in_filho.value
+        if(lista.indexOf(nome)< 0){
+            lista.push(nome)
+        }else{
+            alert(`Não pode ter nome repetido na lista`)
+        }
+        
+    }
+    function atualizar(){
+        var contaPubli = Number(lista.length) * 1500
+        var contaPriv = Number(lista.length) * 3000
+        mostrar.innerHTML=`você tem ${lista.length}<BR>
+            Seu custo mensal será de aproxiamdamente ${contaPriv} se colocar
+            em escola particular ou ${contaPubli} se eles estudarem em escola pública
+            `
+    }
+</script>

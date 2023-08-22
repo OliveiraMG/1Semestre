@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="in_nome" placeholder="nome">
+    <input id="in_preco" placeholder="preco">
+    <button onclick="cadastrar()">Cadastrar</button><Br>
+    <button onclick="relatorio()">Relatorio de estoque</button>
+    <div id="mostrar"></div>
+    <div id="mostrar1"></div>
+    <div id="mostrar2"></div>
+</body>
+</html>
+<script>
+    var lista = [];
+    var soma = 0;  
+    var prodCaro = 0
+    var prodBarat = null;
+    function cadastrar(){
+        var produto = {
+            nome : in_nome.value,
+            preco: Number(in_preco.value),
+            venda : (Number(in_preco.value)*1.25)
+
+        }
+        mostrar1.innerHTML=``
+        lista.push(produto)
+        relatorio();
+    }
+    function relatorio(){
+        soma = 0
+        for (var index = 0; index < lista.length; index++) {
+            var produtos = lista[index];
+            soma += lista[index].preco;
+            if(lista[index].preco > prodCaro){
+                prodCaro = lista[index].preco
+            }
+            if(lista[index].preco < prodBarat || prodBarat == null){
+                prodBarat = lista[index].preco
+            }
+            mostrar1.innerHTML += `Qtd de prod : ${lista.length}<Br>
+            produto ${index + 1} : ${lista[index].nome}<br>
+            preço de compra R$${lista[index].preco} Preço de venda:R$${lista[index].venda}<br><Br>
+            `
+        }
+        var media = soma / lista.length;
+        mostrar2.innerHTML=`Preço produto mais caro : RS${prodCaro} Preço produto mais barato : R$${prodBarat}
+        <Br> Soma de todos os produtos : ${soma} Media dos valores : ${media}`
+    }
+</script>

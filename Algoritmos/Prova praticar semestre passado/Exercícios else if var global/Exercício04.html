@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutróloga</title>
+</head>
+<body>
+    Qual o peso da criança de 5 anos?<br>
+    <input id="in_peso" onkeyup="verificar()"><br><br>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var peso = Number(in_peso.value)
+        if (peso <= 13.5) {
+            div_out.innerHTML = `Abaixo do peso`
+        } 
+        else if (peso == 18.3) {
+            div_out.innerHTML = `Peso perfeito`
+        } else if (peso <= 21.2) {
+            div_out.innerHTML = `Peso na média`
+        } else {
+            div_out.innerHTML = `Acima do peso`
+        }
+    }
+</script>

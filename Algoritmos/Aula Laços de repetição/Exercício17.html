@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caronas</title>
+</head>
+<body>
+    Quantas pessoas vão entrar no carro?<br>
+    <input placeholder="Passageiros" id="in_passageiros"><br><br>
+    <button onclick="verificar()">#Partiu carona</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var contador = 0
+        var passageiro = Number(in_passageiros.value)
+        var motorista = 'Que é o(a) motorista<br>'
+
+        while (contador < passageiro) {
+            contador++
+            if (contador < 6 && contador != 1){
+            div_out.innerHTML += `Entrou o ${contador}° passageiro!<br>`
+            } else if (contador == 1){
+                div_out.innerHTML += `Entrou o ${contador}° passageiro! ${motorista}`
+            } else {
+                div_out.innerHTML += `O ${contador}° passageiro terá que esperar!<br>`
+            }
+        }
+    }
+</script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebe pouco ou muito?</title>
+</head>
+<body>
+    
+    <input placeholder="Quantas taças" id="in_tacas"> <br>
+    <input placeholder="Preço da taça" id="in_preco"> <br>
+    Qual sua tolerância a álcool? <select id="sel_tipo">
+        <option value="fraco">Fraco pra bebida</option>
+        <option value="medio">Bebe todo final de semana</option>
+        <option value="brabo">Só fica bêbado com Querosene</option>
+    </select>
+    <br>
+    <button onclick="beber()">Tomar vinho</button>
+
+    <div id="div_resultado"></div>
+    <img id="img_bebida">
+
+</body>
+</html>
+<script>
+    function beber(){
+       var tacas = Number(in_tacas.value)
+       var preco = Number(in_preco.value)
+       var tolerancia = sel_tipo.value
+
+       var valortotal = preco * tacas
+
+
+
+     if(tacas <=0 || tacas >=30){
+        alert('Só é possivel beber de 0 a 30 taças')
+}
+
+       if(preco < 0.01){
+        alert('Onde ja se viu vinho gratis?')
+} else{
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+}
+
+       // Fraco
+    if(tolerancia == 'fraco' && tacas == 1 || tacas == 2){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/levemente.png`
+}
+    else if(tolerancia == 'fraco' && tacas == 3 || tacas == 4){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/visivelmente.png`
+}
+    else if(tolerancia == 'fraco' && tacas >= 5){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/superbebado.png`
+}
+
+
+
+       // Medio
+    if(tolerancia =='medio' && tacas == 3 || tacas == 4){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/levemente.png`
+       }
+    else if(tolerancia == 'medio' && tacas == 5 || tacas == 6 || tacas == 7){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/visivelmente.png` 
+       }
+    else if(tolerancia == 'medio' && tacas >=8){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/superbebado.png`
+    }
+
+
+   // forte
+   if(tolerancia =='brabo' && tacas == 10 || tacas == 12 || tacas == 13){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/levemente.png`
+}
+   else if(tolerancia == 'brabo' && tacas == 14 || tacas == 15 || tacas == 16 || tacas == 17 || tacas == 18 || tacas == 19){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/visivelmente.png` 
+} else if(tolerancia == 'brabo' && tacas >=20){
+        div_resultado.innerHTML = `Zé Buduia tomou um total de ${tacas} taças de vinho, pagando R$ ${valortotal}`
+        img_bebida.src = `file:///C:/Users/wesle/Downloads/superbebado.png`
+    }
+
+}
+
+</script>

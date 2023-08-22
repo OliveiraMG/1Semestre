@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oração pela paz</title>
+</head>
+<body>
+    Selecione uma das partes das orações:<br>
+    <select id="sel_oracao" onchange="oracao()">
+        <option value=", que eu leve amor">Onde houver ódio</option>
+        <option value=", que eu leve perdão">Onde houver ofensa</option>
+        <option value=", que eu leve a fé">Onde houver dúvida</option>
+        <option value=", que eu leve a união">Onde houver discórdia</option>
+    </select>
+</body>
+</html>
+<script>
+    function oracao() {
+        var oracao = sel_oracao.value
+        alert(`${oracao}`)
+    }
+</script>

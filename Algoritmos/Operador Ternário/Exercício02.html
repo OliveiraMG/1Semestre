@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+</head>
+
+<body>
+    Sua idade: <input type="text" id="in_idade"><br>
+    <button onclick="avaliar()">Avaliar</button><br>
+    <div id="div_out"></div>
+    <div id="div_infancia"></div><br>
+    <div id="div_adolescencia"></div><br>
+    <div id="div_idoso"></div><br>
+    <div id="div_pontos"></div><br>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        div_out.innerHTML = ""
+
+        var idade = Number(in_idade.value)
+        var infancia = idade > 0 ? true : false
+        var adolescencia = idade > 12 ? true : false
+        var idoso = idade >= 65 ? true : false
+        var pontos = 0
+
+        pontos += infancia ? 10 : 0
+        pontos += adolescencia ? 20 : 0
+        pontos += idoso ? 50 : 0
+
+        div_out.style.display = 'block'
+        div_infancia.innerHTML = infancia
+        div_adolescencia.innerHTML = adolescencia
+        div_idoso.innerHTML = idoso
+        div_pontos.innerHTML = pontos
+
+    }
+
+</script>

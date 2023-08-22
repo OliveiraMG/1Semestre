@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha de bus</title>
+</head>
+<body>
+    <h1>Seja bem-vindo</h1>
+
+    <!--Nos 'id' deve-se evitar caracteres especiais-->
+    Linha do ônibus que pega: <input id="in_linha"> <br>
+    Tempo de viagem: <input id="in_tempo"> <br>
+
+    <button onclick="registrar()">Registrar viagem</button>
+</body>
+</html>
+
+<script>
+    function registrar() {
+        alert('Registrando sua linha de ônibus')
+        alert(in_linha.value)
+        alert('Registrando o tempo da viagem')
+        alert(in_tempo.value)
+    }
+</script>

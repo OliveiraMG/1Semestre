@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número da sorte</title>
+</head>
+
+<body>
+
+    Qual seu número da sorte? (entre 0 e 100) <br>
+    <input id="in_numero">
+
+    <button onclick="sorteio()">Valendo!</button>
+
+    <div id="div_out"></div>
+
+</body>
+
+</html>
+<script>
+    function sorteio() {
+        var numero = Number(in_numero.value)
+
+
+        for (var contador = 1; sorte != numero; contador++) {
+            var sorte = parseInt(1 + Math.random() * 100)
+            if (sorte == numero) {
+                alert(`Foram necessários ${contador} sorteios.`)
+            }
+        }
+    }
+</script>

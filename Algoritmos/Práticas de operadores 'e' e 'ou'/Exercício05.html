@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon</title>
+</head>
+<body>
+    TREINADOR: <select id="sel_tipo">
+        <option value="">- Escolha uma opção -</option>
+        <option value="planta">Bulbasauro</option>
+        <option value="agua">Squirtle</option>
+        <option value="fogo">Charmander</option>
+    </select><br>
+
+    OPONENTE: <select id="sel_tipo2">
+        <option value="">- Escolha uma opção -</option>
+        <option value="planta">Bulbassauro</option>
+        <option value="agua">Squirtle</option>
+        <option value="fogo">Charmander</option>
+    </select><br>
+    <button onclick="batalha()">Batalhar!</button>
+    <div id="div_out"></div>
+    <div id="div_out2"></div>
+</body>
+</html>
+<script>
+    var iniV = 0
+    var opoV = 0
+    var emp = 0
+    
+    function batalha() {
+        var ini = sel_tipo.value
+        var opo = sel_tipo2.value
+
+        var luta1 = ini == 'planta' && opo == 'agua'
+        var luta2 = ini == 'agua' && opo == 'planta'
+
+        var luta3 = ini == 'agua' && opo == 'fogo'
+        var luta4 = ini == 'fogo' && opo == 'agua'
+
+        var luta5 = ini == 'fogo' && opo == 'planta'
+        var luta6 = ini == 'planta' && opo == 'fogo'
+
+        if (ini == opo) {
+            div_out.innerHTML = `A batalha empatou!`
+            emp++
+            div_out2.innerHTML = `Vitórias do Iniciante: ${iniV} <br> Derrotas do Iniciante: ${opoV} <br> Empates: ${emp}`
+        }
+
+        if (luta1 || luta3 || luta5) {
+            div_out.innerHTML = `O iniciante venceu!`
+            iniV++
+            div_out2.innerHTML = `Vitórias do Iniciante: ${iniV} <br> Derrotas do Iniciante: ${opoV} <br> Empates: ${emp}`
+        }
+
+        if (luta2 || luta4 || luta6) {
+            div_out.innerHTML = `O iniciante perdeu!`
+            opoV++
+            div_out2.innerHTML = `Vitórias do Iniciante: ${iniV} <br> Derrotas do Iniciante: ${opoV} <br> Empates: ${emp}`
+        }
+
+
+
+    }
+</script>

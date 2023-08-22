@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutricionista</title>
+</head>
+<body>
+    Quantos pães franceses você consome por dia?<br>
+    <input id="in_paes"><br><br>
+    Quantos pacotes de bolacha recheada você consome por dia?<br>
+    <input id="in_bolacha"><br><br>
+    Quantos copos de achocolatado você consome por dia?<br>
+    <input id="in_choco"><br><br>
+    <button onclick="calculo()">Calcular calorias</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function calculo() {
+        var pao = Number(in_paes.value)
+        var bol = Number(in_bolacha.value)
+        var copo = Number(in_choco.value)
+        var paoT = pao * 50
+        var bolT = bol * 80
+        var copoT = copo * 70
+        var calorias = paoT + bolT + copoT
+
+        if (calorias <= 200) {
+            div_out.innerHTML = `Parabéns, vai sair em forma da quarentena!`
+        } else if (calorias <= 400) {
+            div_out.innerHTML = `Cuidado, vai ficar mais "fofinho(a)" após quarentena!`
+        } else {
+            div_out.innerHTML = `Bom, acho que muitos não vão te reconhecer após a quarentena`
+        }
+    }
+</script>

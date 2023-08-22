@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel e DC</title>
+</head>
+<body>
+    Você prefere DC ou Marvel?<br>
+    <select id="sel_universo">
+        <option value="">-Selecione algum universo-</option>
+        <option value="marvel">Marvel</option>
+        <option value="dc">DC Comics</option>
+    </select><br>
+    <button onclick="ver()">Ver programação semanal na TV</button><br>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function ver() {
+        div_out.innerHTML = ''
+        var universo = sel_universo.value
+        
+        for(var contador = 1; contador <= 5; contador++) {
+            var sorteado = parseInt(1 + Math.random() * 5)
+            
+
+            if(universo == 'marvel') {
+                div_out.innerHTML = `Você verá um filme da Marvel que gosta no ${sorteado}º dia`
+                break
+            } else {
+                div_out.innerHTML = `Você verá um filme da DC que gosta no ${sorteado}º dia`
+                break
+            }
+        }
+
+        if (sorteado == 5) {
+            div_out.innerHTML = `É, ou lê um livro ou assiste um filme que não gosta mesmo`
+        }
+    }
+</script>

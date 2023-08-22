@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorte no amor e azar no jogo</title>
+</head>
+<body>
+    
+    <button onclick="ver()">Ver minha sorte!</button>
+    <div id="div_img"></div>
+    <div id="div_out"></div>
+
+    <img src="">
+</body>
+</html>
+<script>
+    function ver() {
+
+        var amor = 0
+        var jogo = 0
+        var frase = 'Você tem mais sorte no'
+        div_img.innerHTML = ''
+        div_out.innerHTML = ''
+
+        for (contador = 0; contador <= 20; contador++) {
+            var sorteado = parseInt(1 + Math.random() * 2)
+            if (sorteado == 1) {
+                div_img.innerHTML += `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/330px-Heart_coraz%C3%B3n.svg.png" style="height: 100px;">`
+                amor++
+            } else {
+                div_img.innerHTML += `<img src="https://img.freepik.com/vetores-gratis/carta-de-baralho-as-de-paus-isolada_1308-80924.jpg?w=360&t=st=1667002133~exp=1667002733~hmac=6f483d303a590567228aa9814ed78d1a2663299df822a9c789120cfadb334f48" style="height: 100px;">`
+                jogo++
+            }
+
+            if (amor >= 11 || jogo >= 11) {
+                break
+            }
+        }
+
+        if (amor > jogo) {
+            div_out.innerHTML = `${frase} amor`
+        } else {
+            div_out.innerHTML = `${frase} jogo`
+        }
+
+    }
+</script>

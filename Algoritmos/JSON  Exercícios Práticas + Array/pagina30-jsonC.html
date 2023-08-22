@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input placeholder="Cadastre um amigo" id="ipt_amigo" type="text">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir Amigos</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    // criando JSON com lista de amigos
+
+    var pessoa = {
+        nome: "JP",
+        idade: 23,
+        amigos: []
+    }
+
+    function cadastrar () {
+        pessoa.amigos.push(ipt_amigo.value); // adicionando um nome no vetor da informção "amigos" do JSON "pessoa"
+    }
+
+    function exibir() {
+        div_mensagem.innerHTML = `Pessoa: ${pessoa.nome} <br> Idade: ${pessoa.idade} <br>`  // acessando informações do JSON "pessoa"
+
+        // div_mensagem.innerHTML += `<br>Amigos: ${pessoa.amigos}`
+
+        for (var i = 0; i < pessoa.amigos.length; i++) { // iterando a lista de amigos do JSON "pessoa"
+            
+            var amigoAtual = pessoa.amigos[i]; // acessa o amigo da lista do JSON "pessoa" na posição atual do contador
+            
+            div_mensagem.innerHTML += `<br>${i+1} - ${amigoAtual} `  // exibe o contador + 1 para o usuário final, e exibe o valor do amigo 
+        } 
+    }
+
+</script>

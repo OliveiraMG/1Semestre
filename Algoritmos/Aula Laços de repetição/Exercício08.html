@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Múltiplos de 7</title>
+</head>
+<body>
+    Escreva um número engtre 0-200:<br>
+    <input placeholder="Número" id="in_numero"><br>
+    <button onclick="efetuar()">Viva o 7!</button><br><br>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function efetuar() {
+        var contador = 0
+        var numero = Number(in_numero.value)
+
+        while(contador < numero) {
+            contador ++
+            if (contador %7 == 0) {
+            div_out.innerHTML += `${contador}<br>`
+            }
+        }
+    }
+</script>

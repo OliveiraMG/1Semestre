@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador "e" (&&)</title>
+</head>
+<body>
+    <h2>Posso ser vegano(a)?</h2>
+
+    Qual a proteína? <select id="sel_proteina" onchange="veganismo()">
+        <option value="nv">Ovo</option>
+        <option value="v">Soja</option>
+        <option value="nv">Carne</option>
+    </select>
+    <br><br>
+    Qual a sobremesa? <select id="sel_sobremesa" onchange="veganismo()">
+        <option value="nv">Pudim</option>
+        <option value="nv">Petit Gateau</option>
+        <option value="v">Brigadeiro de Soja</option>
+    </select>
+
+</body>
+</html>
+<script>
+function veganismo() {
+    // somente se sel_proteina.value for "v" E sel_sobremesa.value for "v" o if será executado
+    if (sel_proteina.value == "v" && sel_sobremesa.value == "v") {
+        alert("Você poderia ser Vegano(a)")
+    } else {
+        alert("Você NÃO poderia ser Vegano(a)")
+    }
+}
+</script>

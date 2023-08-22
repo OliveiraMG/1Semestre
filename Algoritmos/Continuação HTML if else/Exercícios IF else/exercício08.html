@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevador</title>
+</head>
+<body>
+    Qual a quantidade de homem no elevador?<br>
+    <input id="in_homem"><br><br>
+    Qual a quantidade de mulher no elevador?<br>
+    <input id="in_mulher"><br><br>
+    <button onclick="verificar()">Ligar elevador</button>
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var peso = (Number(in_homem.value) * 90) + (Number(in_mulher.value) * 70)
+        if (peso <= 500) {
+            div_resultado.innerHTML = `<span style = "color: green"> Elevador vai se mover, pois esta com ${peso}Kg </span>`
+        } else {
+            div_resultado.innerHTML = `<span style = "color: red"> Alguém precisa descer. Precisa perder ${peso - 500}Kg
+                para o elevador se mover </span>`
+        }
+    }
+</script>

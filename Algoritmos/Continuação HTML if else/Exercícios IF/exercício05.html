@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta de luz</title>
+</head>
+
+<body>
+    
+    Qual a quantidade de kWh consumida ao mês?<br>
+    <input id="in_luzkWh"><br><br>
+    <button onclick="calculo()">Calcular conta de luz</button>
+
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+
+        var conta = Number(in_luzkWh.value) * 0.85
+
+        if (in_luzkWh.value < 100) {
+            alert(`O valor a ser pago no mês é R$${conta * 0.9}`)
+        }
+
+        alert(`O valor a ser pago no mês é R$${conta}`)
+
+        }
+</script>

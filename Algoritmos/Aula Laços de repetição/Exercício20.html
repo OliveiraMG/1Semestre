@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona Leste</title>
+</head>
+<body>
+    Quantos ônibus você precisa pegar?<br>
+    <input placeholder="Ônibus" id="in_onibus"><br><br>
+    Quantos trens precisa pegar?<br>
+    <input placeholder="Trens" id="in_trens"><br><br>
+    Quantos metrôs precisa pegar?<br>
+    <input placeholder="Metrôs" id="in_metros"><br><br>
+    <button onclick="analisar()">#Partiu Trajeto</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var onibus = Number(in_onibus.value)
+        var trem = Number(in_trens.value)
+        var metros = Number(in_metros.value)
+        var contador = 0
+       
+        div_out.innerHTML = ''
+        while (contador < onibus) {
+            contador++
+
+            if (contador < 2) {
+            div_out.innerHTML += `<span style ="color: red">Pegando o ${contador}° busão</span><br>`
+            }
+
+            else if (contador == 2) {
+                div_out.innerHTML += `<span style ="color: red">Pegando o ${contador}° busão (COMEÇANDO A CANSAR)</span><br>`
+            }
+
+            else if (contador >= 3) {
+                div_out.innerHTML += `<span style ="color: red">Pegando o ${contador}° busão (JÁ CANSADO!)</span><br>`
+            }
+        }
+
+        contador = 0
+
+        while (contador < trem) {
+            contador++
+            
+            if (contador < 2) {
+            div_out.innerHTML += `<span style ="color: green">Pegando o ${contador}° trem</span><br>`
+            }
+
+            else if (contador == 2) {
+                div_out.innerHTML += `<span style ="color: green">Pegando o ${contador}° trem (COMEÇANDO A CANSAR)</span><br>`
+            }
+
+            else if (contador >= 3) {
+                div_out.innerHTML += `<span style ="color: green">Pegando o ${contador}° trem (JÁ CANSADO!)</span><br>`
+            }
+        }
+
+        contador = 0
+
+        while (contador < metros) {
+            contador++
+            
+            if (contador < 2) {
+            div_out.innerHTML += `<span style ="color: blue">Pegando o ${contador}° metrô</span><br>`
+            }
+
+            else if (contador == 2) {
+                div_out.innerHTML += `<span style ="color: blue">Pegando o ${contador}° metrô (COMEÇANDO A CANSAR)</span><br>`
+            }
+
+            else if (contador >= 3) {
+                div_out.innerHTML += `<span style ="color: blue">Pegando o ${contador}° metrô (JÁ CANSADO!)</span><br>`
+            }
+        }
+    }
+</script>

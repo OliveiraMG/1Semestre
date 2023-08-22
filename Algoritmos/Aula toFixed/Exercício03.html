@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aritmética</title>
+</head>
+<body>
+    Qual o primeiro valor?<br>
+    <input id="in_valor1"><br><br>
+    Qual o segundo valor?<br>
+    <input id="in_valor2"><br><br>
+    <button onclick="calculo1()">SOMA</button><br>
+    <div id="div_primeira"></div><br>
+    <button onclick="calculo2()">SUBTRAÇÃO</button><br>
+    <div id="div_segunda"></div><br>
+    <button onclick="calculo3()">MULTIPLICAÇÃO</button><br>
+    <div id="div_terceira"></div><br>
+    <button onclick="calculo4()">DIVISÃO</button><br>
+    <div id="div_quarta"></div><br>
+</body>
+</html>
+<script>
+    function calculo1() {
+        var valor1 = Number(in_valor1.value)
+        var valor2 = Number(in_valor2.value)
+        var result = valor1 + valor2
+        div_primeira.innerHTML = `A soma entre ${valor1.toFixed(2)} e ${valor2.toFixed(2)} é ${result.toFixed(2)}`
+    }
+
+    function calculo2() {
+        var valor1 = Number(in_valor1.value)
+        var valor2 = Number(in_valor2.value)
+        var result = valor1 - valor2
+        div_segunda.innerHTML = `A subtração entre ${valor1.toFixed(2)} e ${valor2.toFixed(2)} é ${result.toFixed(2)}`
+    }
+
+    function calculo3() {
+        var valor1 = Number(in_valor1.value)
+        var valor2 = Number(in_valor2.value)
+        var result = valor1 * valor2
+        div_terceira.innerHTML = `O produto entre ${valor1.toFixed(2)} e ${valor2.toFixed(2)} é ${result.toFixed(2)}`
+    }
+
+    function calculo4() {
+        var valor1 = Number(in_valor1.value)
+        var valor2 = Number(in_valor2.value)
+        var result = valor1 / valor2
+        div_quarta.innerHTML = `A razão entre ${valor1.toFixed(2)} e ${valor2.toFixed(2)} é ${result.toFixed(2)}`
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundiais</title>
+</head>
+<body>
+    Quantos títulos mundiais da FIFA seu time tem?<br>
+    <input placeholder="Mundiais" id="in_titulos"><br><br>
+    <button onclick="ver()">Ver troféus de mundiais FIFA</button><br><br>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function ver() {
+        var contador = 0
+        var mundiais = Number(in_titulos.value)
+
+        if (mundiais <= 0) {
+            div_out.innerHTML = `<img height="200px" src="https://ogimg.infoglobo.com.br/fotogalerias/24097275-ad6-74a/FT1086A/652/x85840672_ESP23-11-2019-Torcedores-do-Flamengo-assistem-final-da-Libertadores-no-MaracanaFoto-M.jpg.pagespeed.ic.fwDuWKYw3V.jpg"/><br>`
+        }
+
+        while(contador < mundiais) {
+            contador++
+            div_out.innerHTML += `<img height="200px" src="https://s2.glbimg.com/QPMIxNQea-AS0apLL8gDA2vfsYU=/0x0:900x506/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2019/D/9/OBbbN5QgW88ANcEYD1uA/trofeu-do-mundial-de-clubes-da-fifa-1540248298520-v2-900x506.jpg"/><br>`
+        }
+    }
+</script>

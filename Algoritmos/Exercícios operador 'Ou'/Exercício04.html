@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+</head>
+<body>
+    Qual o modo de pagamento?<br>
+    <select id="sel_pagar">
+    <option value="">- Escolha uma opção -</option>
+    <option value="dinheiro">Dinheiro</option>
+    <option value="debito">Cartão de débito</option>
+    <option value="credito">Cartão de crédito</option>
+    <option value="boleto">Boleto</option>
+    </select><br><br>
+    <button onclick="verificar()">Analisar compra</button><br>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var pgmt = sel_pagar.value
+        if (pgmt == "dinheiro" || pgmt == "debito") {
+            div_out.innerHTML = `Você terá que pagar a vista`
+        } else {
+            div_out.innerHTML = `Pagamento poderá ser parcelado`
+        }
+    }
+</script>

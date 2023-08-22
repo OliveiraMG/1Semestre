@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegano</title>
+</head>
+<body>
+    O que você come no café?<br>
+    <Select id="sel_cafe">
+    <option value="">- Escolha uma opção -</option>
+    <option value="Ovo">Ovos</option>
+    <option value="Leite">Leite de arroz</option>
+    <option value="Bacon">Bacon</option>
+    </Select><br><br>
+
+    O que você come no almoço?<br>
+    <select id="sel_almoco">
+    <option value="">- Escolha uma opção -</option>
+    <option value="Bife">Bife</option>
+    <option value="Hamburguer">Hamburguer de Soja</option>
+    <option value="Frango">Frango Grelhado</option>
+    </select><br><br>
+
+    O que você come no janta?<br>
+    <select id="sel_janta">
+    <option value="">- Escolha uma opção -</option>
+    <option value="Picanha">Picanha de soja</option>
+    <option value="Cupim">Cupim</option>
+    <option value="Coracao">Coração Grelhado</option>
+    </select><br><br>
+
+    <button onclick="verificar()">Sou vegano</button>
+</body>
+</html>
+<script>
+    function verificar() {
+        var cafe = sel_cafe.value
+        var almoco = sel_almoco.value
+        var janta = sel_janta.value
+
+        if (cafe == "Leite" && almoco == "Hamburguer" && janta == "Picanha") {
+            alert(`Sim, você é vegano!`)
+        } else {
+            alert(`Não, você não é vegano`)
+        }
+    }
+</script>

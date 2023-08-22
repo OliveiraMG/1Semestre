@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PréAC3</title>
+</head>
+
+<body id="body1">
+    <h1>Análise de perfomance de Alunos - Registro</h1>
+    <label for="">Entre com o Nome do aluno:</label><br>
+    <input type="text" id="in_nome"><br>
+    <label for="">Entre com a Nota do aluno:</label><br>
+    <input type="text" id="in_nota"><br>
+    <button onclick="registrar()">Registrar</button><br>
+    <button onclick="analisar()">Analisar</button><br>
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    var alunos = [];
+    function registrar() {
+        div_out.innerHTML = "";
+        var nome = in_nome.value;
+        var nota = Number(in_nota.value);
+
+        if (nome == "" && nota < 0 && nota > 10) {
+            alert("Deve preencher os campos corretamente");
+        } else {
+            var registro = {
+                nome: nome,
+                nota: nota,
+            };
+            alunos.push(registro);
+            for (var i = alunos.length - 1; i >= 0; i--) {
+                div_out.innerHTML += `Nome: ${alunos[i].nome}<br>
+        Nota: ${alunos[i].nota.toFixed(2)}<br><br>`;
+            }
+        }
+    }
+
+    function analisar() {
+        body1.innerHTML = "";
+        body1.innerHTML = `<h1>Análise de perfomance de Alunos - Registro</h1>
+
+    <label for="">Entre com o intervalo de notas:</label>
+    <input type="text" id="in_de" placeholder="De"> <input type="text" id="in_ate" placeholder="Até"> <br>
+    <label for="">Insira um filtro:</label> <select name="" id="sel_filtro">
+        <option value=""> -- </option>
+        <option value="nome">Nome</option>
+        <option value="maior">Nota maior que</option>
+        <option value="menor">Nota menor que</option>
+    </select> <br>
+    <label for="">Insira um nome para filtrar:</label> <input type="text" id="in_nomeFiltro" placeholder="Valor do Filtro"> <br>
+    <button onclick="pesquisar()">Pesquisar</button> <button onclick="filtrar()">Aplicar Filtros</button> <br><br>
+    <div id="div_pesquisa"></div> `;
+    }
+
+    function pesquisar() {
+
+        var de = Number(in_de.value);
+        var ate = Number(in_ate.value);
+        var Listados = 0;
+        var max = 0;
+        var min = 100000;
+        var soma = 0;
+        var media = 0;
+
+        if (de >= 0 && de <= 10 && ate >= 0 && ate <= 10) {
+            if (de <= ate) {
+                for (var i = 0; i < alunos.length; i++) {
+                    var nomesPesquisados = alunos[i].nome;
+                    var notasPesquisadas = alunos[i].nota;
+                    soma = soma + notasPesquisadas;
+
+                    if (notasPesquisadas >= de && notasPesquisadas <= ate) {
+                        Listados += 1;
+                        div_pesquisa.innerHTML += `O(a) aluno(a) ${nomesPesquisados} ficou com a nota ${notasPesquisadas.toFixed(
+                            2
+                        )}<br>`;
+                    }
+
+                    if (alunos[i].nota <= min) {
+                        min = alunos[i].nota;
+                    }
+
+                    if (alunos[i].nota >= max) {
+                        max = alunos[i].nota;
+                    }
+                }
+
+                media = soma / alunos.length;
+                div_pesquisa.innerHTML += `<br>Total de alunos registrados: ${alunos.length
+                    } <br>
+                        Total de alunos listados: ${Listados} <br>
+                        Maior Nota = ${max.toFixed(2)}<br>
+                        Menor Nota = ${min.toFixed(2)}<br>
+                        Média da Nota = ${media.toFixed(2)}<br>`;
+            } else {
+                alert(`O campo "De" deve ser menor que o campo "Até"`);
+            }
+        } else {
+            alert(
+                `O campo "De" deve estar entre 0 e 10 e o campo "Até" deve estar entre 0 e 10`
+            );
+        }
+    }
+
+    var filtrados
+    function filtrar() {
+
+        div_pesquisa.innerHTML = "";
+        var filtro = sel_filtro.value;
+        var valorF = in_nomeFiltro.value;
+        var de = Number(in_de.value);
+        var ate = Number(in_ate.value);
+        var Listados = 0;
+        var max = 0;
+        var min = 10000;
+        var soma = 0;
+        var media = 0;
+
+        if (filtro == "nome") {
+            filtrados = []
+            if (alunos.length > 0) {
+                for (var i = 0; i < alunos.length; i++) {
+                    if (valorF == alunos[i].nome) {
+                        filtrados.push(alunos[i]);
+                    }
+                }
+
+                if (filtrados.length > 0) {
+                    div_pesquisa.innerHTML = `Aluno(a) encontrado(a) com o nome de ${valorF}.`;
+
+                    for (var i = 0; i < filtrados.length; i++) {
+                        div_pesquisa.innerHTML += `Nome: ${filtrados[i].nome} <br>
+                                    Nota: ${filtrados[i].nota.toFixed(2)}.<br>`;
+                    }
+
+                    for (var i = 0; i < alunos.length; i++) {
+                        var nomesPesquisados = alunos[i].nome;
+                        var notasPesquisadas = alunos[i].nota;
+                        soma = soma + notasPesquisadas;
+                        Listados += 1;
+
+                        if (alunos[i].nota <= min) {
+                            min = alunos[i].nota;
+                        }
+
+                        if (alunos[i].nota >= max) {
+                            max = alunos[i].nota;
+                        }
+                    }
+
+                    media = soma / alunos.length;
+                    div_pesquisa.innerHTML += `<br>Total de alunos registrados: ${alunos.length
+                        } <br>
+                        Total de alunos listados: ${Listados} <br>
+                        Maior Nota = ${max.toFixed(2)}<br>
+                        Menor Nota = ${min.toFixed(2)}<br>
+                        Média da Nota = ${media.toFixed(2)}<br>`;
+                } else {
+                    div_pesquisa.innerHTML = `Aluno(a) não encontrado(a) com o nome de ${valorF}`;
+                }
+            } else {
+                div_pesquisa.innerHTML = `Não há alunos registrados`;
+            }
+        } else if (filtro == "maior") {
+            filtrados = [];
+            if (alunos.length > 0) {
+                for (var i = 0; i < alunos.length; i++) {
+                    if (alunos[i].nota >= de) {
+                        filtrados.push(alunos[i]);
+                    }
+                }
+
+                if (filtrados.length > 0) {
+                    div_pesquisa.innerHTML = `Aluno(a) encontrado(a) com a nota maior que ${de}.<br><br>`;
+
+                    for (var i = 0; i < alunos.length; i++) {
+                        div_pesquisa.innerHTML += `Nome: ${filtrados[i].nome} <br>
+                                    Nota: ${filtrados[i].nota.toFixed(
+                            2
+                        )}<br><br>`;
+                    }
+
+                    for (var i = 0; i < alunos.length; i++) {
+                        var nomesPesquisados = alunos[i].nome;
+                        var notasPesquisadas = alunos[i].nota;
+                        soma = soma + notasPesquisadas;
+                        Listados += 1;
+
+                        if (alunos[i].nota <= min) {
+                            min = alunos[i].nota;
+                        }
+
+                        if (alunos[i].nota >= max) {
+                            max = alunos[i].nota;
+                        }
+                    }
+
+                    media = soma / alunos.length;
+                    div_pesquisa.innerHTML += `<br>Total de alunos registrados: ${alunos.length
+                        } <br>
+                        Total de alunos listados: ${Listados} <br>
+                        Maior Nota = ${max.toFixed(2)}<br>
+                        Menor Nota = ${min.toFixed(2)}<br>
+                        Média da Nota = ${media.toFixed(2)}<br>`;
+                } else {
+                    div_pesquisa.innerHTML = `Notas não encontradas.`;
+                }
+            } else {
+                div_pesquisa.innerHTML = `Não há alunos registrados.`;
+            }
+        } else if (filtro == "menor") {
+            filtrados = [];
+            if (alunos.length > 0) {
+                for (var i = 0; i < alunos.length; i++) {
+                    if (alunos[i].nota <= ate) {
+                        filtrados.push(alunos[i]);
+                    }
+                }
+
+                if (filtrados.length > 0) {
+                    div_pesquisa.innerHTML = `Aluno(a) encontrado(a) com a nota menor que ${ate}.<br>`;
+
+                    for (var i = 0; i < alunos.length; i++) {
+                        div_pesquisa.innerHTML += `Nome: ${filtrados[i].nome} <br>
+                                    Nota: ${filtrados[i].nota.toFixed(
+                            2
+                        )}<br><br>`;
+                    }
+
+                    for (var i = 0; i < alunos.length; i++) {
+                        var nomesPesquisados = alunos[i].nome;
+                        var notasPesquisadas = alunos[i].nota;
+                        soma = soma + notasPesquisadas;
+                        Listados += 1;
+
+                        if (alunos[i].nota <= min) {
+                            min = alunos[i].nota;
+                        }
+
+                        if (alunos[i].nota >= max) {
+                            max = alunos[i].nota;
+                        }
+                    }
+
+                    media = soma / alunos.length;
+                    div_pesquisa.innerHTML += `<br>Total de alunos registrados: ${alunos.length
+                        } <br>
+                        Total de alunos listados: ${Listados} <br>
+                        Maior Nota = ${max.toFixed(2)}<br>
+                        Menor Nota = ${min.toFixed(2)}<br>
+                        Média da Nota = ${media.toFixed(2)}<br>`;
+                } else {
+                    div_pesquisa.innerHTML = `Notas não encontradas.`;
+                }
+            } else {
+                div_pesquisa.innerHTML = `Não há alunos registrados.`;
+            }
+        } else {
+            alert("Insira um tipo de filtro!");
+        }
+    }
+</script>

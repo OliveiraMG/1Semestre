@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpo</title>
+</head>
+
+<body>
+
+    Clique no botão para jogar jokenpo:<br> 
+    <button onclick="jogar()">Jogar</button>
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    function jogar() {
+        var jokenpo = parseInt(Math.random() * 3)
+
+        div_out.innerHTML = ""
+
+        if (jokenpo == 1) {
+            div_out.innerHTML = `<img src= "https://http2.mlstatic.com/D_NQ_NP_2X_693806-MLB26805885587_022018-F.webp"; height= "200px"></img>`
+        } else if (jokenpo == 2) {
+            div_out.innerHTML = `<img src= "https://http2.mlstatic.com/D_NQ_NP_2X_841522-MLB26805889038_022018-F.webp"; height= "200px"></img>`
+        } else {
+            div_out.innerHTML = `<img src= "https://http2.mlstatic.com/D_NQ_NP_2X_628788-MLB26805882610_022018-F.webp"; height= "200px"></img>`
+        }
+    }
+</script>

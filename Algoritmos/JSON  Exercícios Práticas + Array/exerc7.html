@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="tela" style="display:block ;">
+        ANÁLISE<BR>
+        Nome do aluno <input id="in_aluno"><br>
+        nota do aluno
+        <input id="in_nota"><br>
+        <button onclick="registrar()">Registrar</button><br>
+        <button onclick="analisar()">Analisar</button><br>
+        <div id="mostrar"></div>
+    </div>
+    <div id="tela1" style="display:none ;">
+        Entre com o intervalo de notas<br>
+        <input id="in_de"><input id="in_ate">
+        <button onclick="pesquisar()">Pesquisar</button><br>
+        <div id="mostrar1"></div>
+        <div id="mostrar2"></div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    var lista = []
+    var numMaior = 0
+    var numMenor = null
+    var total = 0
+    function registrar() {
+        var nome = in_aluno.value
+        var nota = Number(in_nota.value)
+        var aluno = {
+            nome,
+            nota
+        }
+        
+        if (nome == null || (nota < 0 || nota > 10)) {
+            alert(`insira dados válidos`)
+        } else {
+            lista.push(aluno)
+        }
+        repetir();
+    }
+    function analisar() {
+        tela.style.display = `none`
+        tela1.style.display = `block`
+    }
+    function repetir() {
+        mostrar.innerHTML = ``
+        for (var index = lista.length -1; index >= 0; index--) {
+            if (lista[index].nota > numMaior) {
+                numMaior = lista[index].nota
+            }
+            if (lista[index].nota < numMenor || numMenor == null) {
+                numMenor = lista[index].nota
+            }
+            mostrar.innerHTML += `
+                ${index+1} aluno : ${lista[index].nome}<br>
+                nota : ${lista[index].nota} <br>
+            `
+        }
+    }
+    var contador = 0
+    function pesquisar() {
+        var de = Number(in_de.value)
+        var ate = Number(in_ate.value)
+        for (var index = 0; index < lista.length; index++) {
+
+            if (lista[index].nota >= de && lista[index].nota <= ate) {
+                contador++
+                total += lista[index].nota;
+                var media = total / contador;
+                mostrar1.innerHTML += `
+                Nome :${lista[index].nome}<br>
+                Media :${lista[index].nota}<br>
+                
+                `
+
+            }
+        }
+        mostrar2.innerHTML = `
+            Total de alunos registrados = ${lista.length}<br>
+            Total de alunos listados = ${contador}<br>
+            Maior Nota = ${numMaior}<br>
+            Menor Nota = ${numMenor}<br>
+            Media = ${media}<Br><Br>
+        `
+    }
+</script>

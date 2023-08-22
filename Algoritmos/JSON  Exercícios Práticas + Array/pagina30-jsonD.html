@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        Digitar nome e telefone, ao clicar em "cadastrar", adiciona o contato numa lista
+        Ao clicar em "exibir", exibe as informações dos contatos como:
+            `Nome: ${contato.nome} <br> Telefone: ${contato.telefone}`
+     -->
+
+
+    <input id="ipt_nome" placeholder="Insira o nome" type="text"> <br>
+    <input id="ipt_telefone" placeholder="Insira o telefone" type="text"> <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir lista de Contatos</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    var contatos = [] // criando lista de contatos
+
+    function cadastrar () {
+        // criando JSON de contato com base nos valores das inputs
+        var contato = {
+            nome: ipt_nome.value, 
+            telefone: ipt_telefone.value
+        }
+
+        // adicionando JSON de contato na lista de contatos
+        contatos.push(contato)
+    }
+
+    function exibir () {
+        div_mensagem.innerHTML = "";
+
+        for (var i = 0; i < contatos.length; i++) { // iterando a lista de contatos 
+
+            var objetoContatoAtual = contatos[i] // acessando o objeto no vetor de contatos de acordo com a posição 
+
+            div_mensagem.innerHTML += `
+                Nome: ${objetoContatoAtual.nome} <br> 
+                Telefone: ${objetoContatoAtual.telefone}<br><br>
+            `
+            // utilizando o contato atual para acessar as informações "nome" e "telefone" do JSON da lista
+        }
+    }
+
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Televisão</title>
+</head>
+<body>
+    Qual a marca da TV?<br>
+    <select id="sel_TV">
+        <option value="">- Escolha uma opção -</option>
+        <option value="sam">Samsung</option>
+        <option value="lg">LG</option>
+        <option value="mon">Mondial</option>
+        <option value="bri">Britânia</option>
+    </select><br><br>
+    Qual o preço da TV?<br>
+    <input placeholder="Valor" id="in_preco"><br><br>
+    <button onclick="analise()">Analisar compra</button>
+    <div id="div_out"></div>
+    <div id="div_out2"></div>
+</body>
+</html>
+<script>
+    function analise() {
+        var marca = sel_TV.value
+        var preco = Number(in_preco.value)
+
+        var desconfiar = marca == 'mon' || marca == 'bri'
+        var confiar = marca == 'sam' || marca == 'lg'
+
+        if (desconfiar && preco >= 800 && preco <= 2000) {
+            div_out.innerHTML = 'Na faixa de preço, porém marca não confiável'
+            div_out2.innerHTML = ' '
+        }
+        
+        if (confiar && preco >= 800 && preco <= 2000) {
+            div_out.innerHTML = 'Essa TV pode entrar na sua lista!'
+        } 
+        
+        if (preco < 800 || preco > 2000) {
+            if (preco < 800) {
+                div_out.innerHTML = 'TV fora da faixa de preço'
+                div_out2.innerHTML = 'Preço baixo demais'
+            }
+
+            if (preco > 2000) {
+                div_out.innerHTML = 'TV fora da faixa de preço'
+                div_out2.innerHTML = 'TV cara demais'
+            }
+
+        }
+    }
+</script>

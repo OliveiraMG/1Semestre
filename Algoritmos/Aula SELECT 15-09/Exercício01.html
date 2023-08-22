@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime</title>
+</head>
+<body>
+    
+    <h2>Qual herói você quer saber a classe?:</h2><br>
+    <select id="sel_heroi" onchange="herois()">
+        <option value="">Escolha um Herói</option>
+        <option value="Classe S">Metal Night</option>
+        <option value="Classe A">Máscara Doce</option>
+        <option value="Classe S">Prisioneiro Puri Puri</option>
+        <option value="Classe B">Fubuki</option>
+        <option value="Classe C">Cavaleiro sem licença</option>
+    </select>
+    <div id="div_classes"></div>
+
+</body>
+</html>
+<script>
+    function herois() {
+        var heroi = sel_heroi.value
+
+        div_classes.innerHTML = `Esse herói é da ${heroi}`
+    }
+</script>

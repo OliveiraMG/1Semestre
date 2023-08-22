@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretendente</title>
+</head>
+<body>
+    Qual o tempo que você trabalhou? (Em anos)<br>
+    <input id="in_tempo"><br><br>
+    Qual a quantidade de trigo por hectares que suas plantações renderam? (Em Kilos)<br>
+    <input id="in_trigo"><br><br>
+    Quanto você faltou no trabalho? (Em dias)<br>
+    <input id="in_falta"><br><br>
+    <button onclick="match()">Deu Match?</button>
+    <div id="div_out"></div>
+    <img src="" id="img" alt="" height="400px">
+</body>
+</html>
+<script>
+    function match() {
+        var tempo = Number(in_tempo.value)
+        var trigo = Number(in_trigo.value)
+        var falta = Number(in_falta.value)
+
+        if (tempo >= 5 && trigo >= 300 && falta <= 5) {
+            img.src = "https://www.constancezahn.com/wp-content/uploads/2020/08/05-dia-mundia-da-fotografia-fotografos-de-casamento-produtora-7.jpg.webp"
+            div_out.innerHTML = `Minha filha será sua!`
+        } else {
+            img.src = "https://img.freepik.com/fotos-premium/gritando-homem-bravo_102671-5998.jpg?w=900"
+            div_out.innerHTML = "Deu ruim! Trabalhe mais 2 anos"
+        }
+    }
+</script>

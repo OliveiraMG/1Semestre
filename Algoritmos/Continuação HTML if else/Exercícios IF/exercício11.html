@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming</title>
+</head>
+<body>
+    Quantos filhos você tem?<br>
+    <input id="in_filhos"><br><br>
+    <button onclick="analise()">Analisar família</button>
+    <div id="div_familia"></div>
+
+</body>
+</html>
+
+<script>
+    function analise() {
+        var filho = Number(in_filhos.value)
+        
+        if (filho >= 1) {
+         div_familia.innerHTML = 'Não tem TV<br>'
+        }
+        if (filho >= 2) {
+         div_familia.innerHTML += 'Não tem internet<br>'
+        }
+        if (filho >= 3) {
+         div_familia.innerHTML += 'Não tem videogame<br>'
+        }
+        if (filho >= 4) {
+         div_familia.innerHTML += 'Não tem Netflix<br>'
+        }
+    }
+</script>

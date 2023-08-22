@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input placeholder="insira a idade" id="ipt_idade" type="text">
+    <button onclick="exibir()">Exibir</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function exibir() {
+        var idade = Number(ipt_idade.value)
+
+        var pessoa = {
+            nome : "JP",
+            idade, // reconhece que existe alguma variável "idade", e cria uma informação "idade" no JSON, utilizando o valor da variável 
+        }
+        // podemos usar também ->    idade : idade    ou    idade : Number(ipt_idade.value)  
+
+
+        pessoa.nome = "XPTO" // sobrescrevendo valor padrão da informação "nome" do JSON
+        // pessoa.idade = idade;
+
+        div_mensagem.innerHTML = `Pessoa: ${pessoa.nome} <br> Idade: ${pessoa.idade}` // acessando informações do JSON "pessoa"
+    }
+
+</script>

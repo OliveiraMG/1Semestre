@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renda</title>
+</head>
+<body>
+
+    Qual a sua renda familiar?<br>
+    <input id="id_rendaF"><br><br>
+    Qual o valor da prestação?<br>
+    <input id="id_prestacao"><br><br>
+
+    <button onclick="financiamento()">Verificar financiamento</button>
+    <div id="div_casa"></div>
+    <b><div id="div_casa2" style="color: red;"></div></b>
+
+</body>
+</html>
+
+<script>
+
+    function financiamento() {
+        var prestacao = (Number(id_prestacao.value) / Number(id_rendaF.value)) * 100
+
+        div_casa.innerHTML = `A prestação corresponde a ${prestacao}% da renda familiar<br>`
+
+        if(prestacao > 30) {
+            div_casa2.innerHTML += 'Será necessário complementar a renda familiar'
+        }
+    }
+</script>

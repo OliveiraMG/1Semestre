@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número da sorte pt.2</title>
+</head>
+<body>
+    Qual seu número da sorte? (0 - 100)<br>
+    <input placeholder="Número da Sorte" id="in_numeroSorte"><br>
+    <button onclick="sorte()">Testar minha sorte!</button>
+    <div id="div_out"></div>
+
+</body>
+</html>
+<script>
+    function sorte() {
+        div_out.innerHTML = ''
+        var numSorte = Number(in_numeroSorte.value)
+
+        if (numSorte < 0 || numSorte > 100) {
+            alert(`Digite um valor de 0 a 100`)
+        } else {
+
+        var tem_sorte = false
+        
+        for (var contador = 1; contador <= 20; contador++) {
+            var sorteado = parseInt(Math.random() * 101)
+            
+            tem_sorte = sorteado == numSorte
+            if (tem_sorte) {
+            div_out.innerHTML = `Muito bem, você é uma pessoa de sorte! Seu número saiu no ${contador}º sorteio`
+            break
+            }
+        }
+
+        if (!tem_sorte) {
+            div_out.innerHTML = `É, você não tem muita sorte em sorteios, pelo visto`
+        }
+
+    }
+}
+</script>

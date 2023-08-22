@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depósitos</title>
+</head>
+
+<body>
+    Quantos depósitos você fez no banco?<br>
+    <input placeholder="Depósitos" id="in_deposito"><br>
+    Qual era o valor de cada depósito?<br>
+    <input placeholder="Valor" id="in_valor"><br>
+    <button onclick="analisar()">Acompanhar grana</button><br>
+    <div id="div_out"></div>
+    <div id="div_result"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var deposito = Number(in_deposito.value)
+        var valor = Number(in_valor.value)
+        div_out.innerHTML = ""
+        div_result.innerHTML = ""
+
+
+        for (var contador = 1; contador <= deposito; contador++) {
+            div_out.innerHTML += `${contador}º mês: ${valor * contador}<br>`
+            div_result.innerHTML = `<b>Total guardado:${valor * contador}</b>`
+        }
+    }
+</script>

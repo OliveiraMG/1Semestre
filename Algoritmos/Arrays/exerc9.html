@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="projeto" id="in_projeto"><br>
+    <button onclick="registrar()">Resgistrar projeto</button><br>
+    <div id="msg"></div>
+    <button onclick="mostrar()">Mostrar projetos</button>
+    <div id="exibit"></div>
+
+</body>
+</html>
+<script>
+    var lista = []
+    var contador = 0
+    function registrar(){
+        lista.push(in_projeto.value)
+        contador++
+        msg.innerHTML=`você já fez ${contador} projetos. Por isso você é um profissional junior`
+        if(contador <=4){
+            msg.innerHTML=`você já fez ${contador} projetos. Por isso você é um profissional Z`
+        }
+        else if(contador<= 12){
+
+            msg.innerHTML=`você já fez ${contador} projetos. Por isso você é um profissional pleno desde o projeto ${lista[4]}`
+        }else{
+            msg.innerHTML=`você já fez ${contador} projetos. Por isso você é um profissional Senior desde o projeto ${lista[12]}`
+        }
+    }
+    function mostrar(){
+        for (var index = 0; index < lista.length; index++) {
+            var elemento = lista[index];
+            exibit.innerHTML+=`${elemento}<br>`
+        }
+    }
+</script>

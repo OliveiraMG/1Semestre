@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estações</title>
+</head>
+<body>
+    <select id="sel_meses" onchange="mudar()">
+        <option value="">- Selecione um mês -</option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Janeiro</option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Fevereiro</option>
+        <option value="https://drarobertapansera.com.br/wp-content/uploads/2021/03/Outono_100x667px.jpg">Março</option>
+        <option value="https://drarobertapansera.com.br/wp-content/uploads/2021/03/Outono_100x667px.jpg">Abril</option>
+        <option value="https://drarobertapansera.com.br/wp-content/uploads/2021/03/Outono_100x667px.jpg">Maio</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/inverno.jpg">Junho</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/inverno.jpg">Julho</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/inverno.jpg">Agosto</option>
+        <option value="https://i1.wp.com/www.guiaestudo.com.br/wp-content/uploads/2019/03/Primavera.jpg">Setembro</option>
+        <option value="https://i1.wp.com/www.guiaestudo.com.br/wp-content/uploads/2019/03/Primavera.jpg">Outubro</option>
+        <option value="https://i1.wp.com/www.guiaestudo.com.br/wp-content/uploads/2019/03/Primavera.jpg">Novembro</option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Dezembro</option>
+    </select><br><br>
+    <img src="" id="img_estacao" style="height: 200px;">
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function mudar() {
+        var mes = sel_meses.value
+        img_estacao.src = `${mes}`
+        
+        if (mes == 'https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg') {
+            div_out.innerHTML = `Verão quentíssimo`
+        } else if (mes == 'https://drarobertapansera.com.br/wp-content/uploads/2021/03/Outono_100x667px.jpg') {
+            div_out.innerHTML = `Outono bom para um café quente`
+        } else if (mes == 'https://www.infoescola.com/wp-content/uploads/2008/10/inverno.jpg') {
+            div_out.innerHTML = `Frio congelante, não saia das cobertas`
+        } else {
+            div_out.innerHTML = `Primavera linda, dê uma flor há alguém`
+        }
+    }
+</script>

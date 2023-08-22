@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Linha de ônibus
+    <input id="in_linha"><br>
+    <button onclick="busao()">Gravar linha</button><br>
+    pesquisar linha<br>
+    <input id="in_pesquisa">
+    <button onclick="pesquisar()">pesquisar</button>
+    <div id="texto"></div>
+    <div id="d_pesquisa">
+    </div>
+
+</body>
+</html>
+<script>
+    var contador = 0
+    var lista = []
+    function busao(){
+        texto.innerHTML=``
+        lista.push(in_linha.value)
+        for(var indice = lista.length -1 ; indice>=0 ; indice--){
+            var atual = lista[indice]
+            texto.innerHTML += `${indice +1} ${atual}<br>`
+        }
+    }
+    var lista1 = []
+    function pesquisar(){
+        for(var indice = 0;indice<lista.length;indice++){
+            var atual = lista[indice]
+            if(atual == in_pesquisa.value){
+                lista1.push(indice+1)
+                contador++
+                
+            }
+        }
+        if(contador>0){
+            d_pesquisa.innerHTML=`Você pegou essa linha ${contador}, na ordem ${lista1}`    
+        }else{
+            d_pesquisa.innerHTML=`Você não pegou essa linha nenhuma vez`
+        }
+    
+    }
+
+
+</script>

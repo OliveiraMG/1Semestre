@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio times</title>
+</head>
+
+<body>
+    Clique no botão para realizar o sorteio:<br>
+    <button onclick="sorteio()">Sortear time</button>
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    function sorteio() {
+        var time = 1 + parseInt(Math.random() * 4)
+
+        div_out.innerHTML = ""
+
+        if (time == 1) {
+            div_out.innerHTML = `<img src="https://logodownload.org/wp-content/uploads/2016/09/sao-paulo-fc-logo-2048x2048.png"; height= "150px"></img>`
+        } else if (time == 2) {
+            div_out.innerHTML = `<img src="https://logodownload.org/wp-content/uploads/2016/11/corinthians-logo-0-2048x2048.png"; height= "150px"></img>`
+        } else if (time == 3) {
+            div_out.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Santos_logo.svg/752px-Santos_logo.svg.png"; height= "150px"></img>`
+        } else {
+            div_out.innerHTML = `<img src="https://i.pinimg.com/564x/80/c4/2b/80c42b895dddc30dff16058a983529c2.jpg"; height= "150px"></img>`
+        }
+
+    }
+</script>

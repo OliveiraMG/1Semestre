@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações Aritméticas</title>
+</head>
+<body>
+    
+    1° número: <input id="in_numero1"><br>
+    2° número: <input id="in_numero2"><br>
+
+    <button onclick="somar()">Soma</button>
+    <div id="div_soma"></div>
+
+    <button onclick="subtrair()">Subtração</button>
+    <div id="div_subtracao"></div>
+
+    <button onclick="multiplicar()">Multiplicação</button>
+    <div id="div_multiplicacao"></div>
+
+    <button onclick="dividir()">Divisão</button>
+    <br><br>
+    <div id="div_divisao"></div>
+
+</body>
+</html>
+
+<script>
+    function somar() {
+        div_soma.innerHTML = `A soma entre ${in_numero1.value} e ${in_numero2.value} é ${Number(in_numero1.value) + Number(in_numero2.value)}`
+    }
+
+    function subtrair() {
+        div_subtracao.innerHTML = `A diferença entre ${in_numero1.value} e ${in_numero2.value} é ${Number(in_numero1.value) - Number(in_numero2.value)}`
+    }
+
+    function multiplicar() {
+        div_multiplicacao.innerHTML = `O produto entre ${in_numero1.value} e ${in_numero2.value} é ${Number(in_numero1.value) * Number(in_numero2.value)}`
+    }
+
+    function dividir() {
+        div_divisao.innerHTML = `A razão entre ${in_numero1.value} e ${in_numero2.value} é ${Number(in_numero1.value) / Number(in_numero2.value)}`
+    }
+</script>

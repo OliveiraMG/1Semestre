@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário</title>
+</head>
+<body>
+
+    Qual o seu salário bruto?<input id="in_bruto"><br>
+
+    <button onclick="valor()">Cálculo do quanto restará</button>
+</body>
+</html>
+
+<script>
+    function valor() {
+        alert(`Apesar de seu bruto ser R$${in_bruto.value}, após os descontos, você receberá somente ${Number(in_bruto.value) - (Number(in_bruto.value) * 0.1) - (Number(in_bruto.value) * 0.2) - (Number(in_bruto.value) * (1/30))}`)
+    }
+</script>

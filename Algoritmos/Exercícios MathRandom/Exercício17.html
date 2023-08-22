@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números pares e ímpares</title>
+</head>
+
+<body>
+
+    Números pares: <span id='sp_par'>0</span><br>
+    Números ímpares: <span id="sp_impar">0</span><br>
+    Clique no botão para obter um número
+    <button onclick="sortear()">Sortear número</button>
+
+</body>
+
+</html>
+<script>
+    var parF = 0
+    var imparF = 0
+    function sortear() {
+        var sorte = -30 + parseInt(Math.random() * ((-9 + 1) - (-30)))
+
+        if (sorte % 2 == 0) {
+            parF++
+            sp_par.innerHTML = `${parF}`
+        } else {
+            imparF++
+            sp_impar.innerHTML = `${imparF}`
+        }
+
+    }
+</script>

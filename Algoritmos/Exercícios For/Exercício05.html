@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amostragem 3</title>
+</head>
+
+<body>
+    Limite inferior:<br>
+    <input placeholder="0" id="in_inferior"><br>
+    Limite superior:<br>
+    <input placeholder="0" id="in_superior"><br>
+    <button onclick="contar()">Contar</button>
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    function contar() {
+        div_out.innerHTML = ''
+        var inferior = Number(in_inferior.value)
+        var superior = Number(in_superior.value)
+
+        for (var contador = inferior; contador < superior; contador++) {
+            if (inferior < 0) {
+                div_out.innerHTML += `O número inferior informado é menor que 0`
+            } else if (superior < 0) {
+                div_out.innerHTML += `O número superior informado é menor que 100`
+            }
+            if (contador % 2 == 1) {
+                div_out.innerHTML += `${contador}<br>`
+            }
+        }
+    }
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economia</title>
+</head>
+<body>
+    Qual a sua meta de economia?<br>
+    <input id="in_Mecono"><br><br>
+    Quanto você tem guardado?<br>
+    <input id="in_guardado"><br><br>
+    <button onclick="analise()">Analisar economia</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function analise() {
+        var Meco = Number(in_Mecono.value)
+        var poupanca = Number(in_guardado.value)
+        var lucro = poupanca - Meco
+        var onus = Meco - poupanca
+
+        if (poupanca == Meco) {
+            div_out.innerHTML = `Parabéns, meta alcançada`
+        } else if (poupanca > Meco) {
+            div_out.innerHTML = `Parabéns, meta alcançada<br>
+            Meta ultrapassada em R$${lucro}`
+        } else {
+            div_out.innerHTML = `Força! Ainda em busca da meta! Falta R$${onus}`
+        }
+    }
+</script>

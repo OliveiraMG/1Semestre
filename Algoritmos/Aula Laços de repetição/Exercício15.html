@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fases da vida</title>
+</head>
+<body>
+    Qual a sua idade?<br>
+    <input placeholder="Idade" id="in_idade" onkeyup="exibir()"><br><br>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function exibir() {
+        var idade = Number(in_idade.value)
+        var contador = 0
+
+        div_out.innerHTML = ''
+        while(contador < idade) {
+            contador++
+            if (contador <= 4) {
+                div_out.innerHTML += `${contador} anos (Primeira Infância)<br>`
+            } else if (contador <= 6) {
+                div_out.innerHTML += `${contador} anos (Pré-escolar)<br>`
+            } else if(contador <= 10) {
+                div_out.innerHTML += `${contador} anos (Segunda Infância)<br>`
+            } else if(contador <= 18) {
+                div_out.innerHTML += `${contador} anos (Adolescência)<br>`
+            } else if(contador <= 50) {
+                div_out.innerHTML += `${contador} anos (Adulto)<br>`
+            } else if(contador <= 100) {
+                div_out.innerHTML += `${contador} anos (Melhor idade)<br>`
+            } else {
+                div_out.innerHTML += `${contador} anos (Matusalém)<br>`
+            }
+        }
+    }
+</script>

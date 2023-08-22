@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade Estágios</title>
+</head>
+<body>
+    Qual a sua idade?<br>
+    <input placeholder="Idade" id="in_idade"><br><br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_out"><h1>Total de pontos: 0</h1></div>
+</body>
+</html>
+<script>
+    var pontos = 0
+    function analisar() {
+        var idade = Number(in_idade.value)
+        var crianca = idade <= 12
+        var adolescente = idade <= 18
+        var idoso = idade >= 65
+
+        if (crianca) {
+            pontos = pontos + 10
+            div_out.innerHTML = `<h1>Total de pontos: ${pontos}</h1>`
+        }
+
+        if (!crianca && adolescente) {
+            pontos = pontos + 20
+            div_out.innerHTML = `<h1>Total de pontos: ${pontos}</h1>`
+        }
+            
+        if (idoso) {
+            pontos = pontos + 50
+            div_out.innerHTML = `<h1>Total de pontos: ${pontos}</h1>`
+        }
+
+
+
+    }
+</script>

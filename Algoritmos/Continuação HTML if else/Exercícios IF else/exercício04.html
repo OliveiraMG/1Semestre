@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluno</title>
+</head>
+<body>
+    
+    Qual a sua frequência?<br>
+    <input id="in_frequencia"><br><br>
+    <button onclick="analise()">Analisar frequência</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function analise() {
+        var valor = Number(in_frequencia.value)
+        if (valor < 50) {
+        div_resultado.innerHTML = `<img src ="https://cdn-icons-png.flaticon.com/512/1243/1243561.png" 
+        alt='' width="200px">`
+        } else {
+            div_resultado.innerHTML = `<img src ="https://img2.gratispng.com/20180613/pgl/kisspng-computer-icons-student-icon-design-download-tassle-5b219f70b92228.0049373015289301607583.jpg" 
+        alt='' width="200px">`
+        }
+    }
+</script>

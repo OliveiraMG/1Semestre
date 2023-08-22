@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filme</title>
+</head>
+<body>
+    Registro de filmes <br><br>
+
+    Filme Favorito: <input id="in_filme"> <br>
+    Quantas vezes você assistiu: <input id="in_quantia"> <br>
+    Qual foi a última vez que assistiu: <input id="in_quando"> <br>
+
+    <button onclick="analisar()">Analisar filme</button>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        alert(`Você ja assistiu ${in_filme.value} pela última vez em ${in_quando.value},e já o assistiu ${in_quantia.value} vezes`)
+    }
+</script>

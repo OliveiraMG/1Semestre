@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amostragem</title>
+</head>
+
+<body>
+    Limite superior:<br>
+    <input placeholder="100" id="in_limite"><br>
+    <button onclick="contar()">Contar</button><br>
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    function contar() {
+        div_out.innerHTML = ''
+
+        var Lsuperior = Number(in_limite.value)
+
+        for (var contador = 5; contador <= Lsuperior; contador++) {
+            if (Lsuperior < 100) {
+                div_out.innerHTML = `O limite superior está menor que 100, não podemos prosseguir`
+            } else (
+                div_out.innerHTML += `${contador}<br>`
+            )
+        }
+    }
+</script>

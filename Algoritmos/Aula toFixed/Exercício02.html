@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluno</title>
+</head>
+<body>
+    Qual a sua primeira nota?<br>
+    <input id="in_nota1"><br><BR>
+    Qual a sua segunda nota?<br>
+    <input id="in_nota2"><br><BR>
+    <button onclick="calculo()">Ver média!</button>
+    <div id="div_media"></div>
+</body>
+</html>
+<script>
+    function calculo() {
+        var nota1 = Number(in_nota1.value)
+        var nota2 = Number(in_nota2.value)
+        var media = (nota1 + nota2) / 2
+        div_media.innerHTML = `Sua média foi de ${media.toFixed(2)} `
+    }
+</script>

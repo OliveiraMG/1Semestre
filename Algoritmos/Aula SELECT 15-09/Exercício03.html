@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercearia</title>
+</head>
+<body>
+    <h2>Combo:</h2>
+    <select id="sel_mercado">
+        <option value="">-Escolha um</option>
+        <option value="3.95">Farinha</option>
+        <option value="6.50">Leite</option>
+        <option value="1.30">Milho</option>
+        <option value="7.40">Alface Americano</option>
+    </select><br><br>
+    <button onclick="calculo()">Ver preço</button>
+</body>
+</html>
+<script>
+    function calculo() {
+        var mercado = Number(sel_mercado.value)
+
+        alert(`Isso custa R$${mercado.toFixed(2)}`)
+    }
+</script>

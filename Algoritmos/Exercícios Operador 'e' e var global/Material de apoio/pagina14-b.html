@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis globais parte 2</title>
+</head>
+<body>
+    <h2>Cofrinho</h2>
+    
+    <div>
+        Valor no cofrinho: R$<b id="b_valor">0.00</b>
+    </div>
+    <input placeholder="Valor inicial" id="in_valor">
+    <br>
+    <button onclick="inicial()">Registrar valor inicial</button>
+    <br>
+    <button onclick="depositar10()">Depositar 10</button>
+    <br>
+    <button onclick="quebrar()">Quebrar!</button>
+</body>
+</html>
+<script>
+
+    // Não faça isso! O 'valor' NÃO será atualizado conforme muda o valor da input!
+    // var valor = Number(in_valor.value)
+    var valor = 0
+
+    function inicial() {
+        valor = Number(in_valor.value)
+    }
+
+    function depositar10() {
+        valor += 10
+        atualizar()
+    }
+    
+    function quebrar() {
+        valor = 0
+        atualizar()
+    }
+
+    function atualizar() {
+        b_valor.innerHTML = valor.toFixed(2)
+    }
+
+</script>

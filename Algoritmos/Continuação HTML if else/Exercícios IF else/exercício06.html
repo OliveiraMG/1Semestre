@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura</title>
+</head>
+<body>
+    Qual a temperatura do ambiente?<br>
+    <input id="in_temp"><br><br>
+    <button onclick="verificar()">Verificar clima</button>
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var valor = Number(in_temp.value)
+        if (valor < 10) {
+            div_resultado.innerHTML = `<img src ="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/280px-Red_Apple.jpg" 
+        alt='' width="200px">`
+        } else {
+            div_resultado.innerHTML = `<img src ="https://thumbs.dreamstime.com/b/ma%C3%A7%C3%A3-podre-13258722.jpg" 
+        alt='' width="200px">`
+        }
+    }
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descontos CLT</title>
+</head>
+<body>
+    Qual o seu salário bruto?<br>
+    <input id="in_bruto"><br><br>
+    <button onclick="calculo()">Calcular Descontos</button>
+</body>
+</html>
+<script>
+    function calculo() {
+        var bruto = Number(in_bruto.value)
+        var porcentagemINSS = bruto * 0.1
+        var porcentagemIR = bruto * 0.2
+        var porcentagemSindical = bruto * (1/30)
+        var final = bruto - porcentagemINSS - porcentagemIR - porcentagemSindical
+        alert(`Apesar de seu bruto ser R$${bruto.toFixed(2)}, após os descontos, você receberá somente R$${final.toFixed(2)}`)
+    }
+</script>

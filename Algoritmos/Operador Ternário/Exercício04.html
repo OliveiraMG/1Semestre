@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequência</title>
+</head>
+
+<body>
+    Informe sua frequencia: <input type="text" id="in_freq"><br>
+    <button onclick="analisar()">Analisar frequência</button><br>
+    <div id="div_out"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var freq = Number(in_freq.value)
+        var out = freq < 500 ? '<img src="https://img.freepik.com/fotos-gratis/turista-que-corre-rapido_1368-7021.jpg?w=2000" alt="" width="250px">' : '<img src="https://yt3.ggpht.com/ytc/AMLnZu8OK3tGtihaSjzE0h2Aa3aGpbhCPCSkKyRt_Wce=s900-c-k-c0x00ffffff-no-rj" alt="" width="250px">'
+
+        div_out.innerHTML = out
+    }
+</script>

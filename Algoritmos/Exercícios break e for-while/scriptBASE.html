@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="sortear()">Sortear 3045</button>
+
+</body>
+</html>
+
+<script>
+    function sortear() {
+        // while (1==1) {
+        var contador = 0
+        while (true) {
+            var numero = parseInt(Math.random() * 5001)
+            console.log(numero)
+            contador++
+
+            if (numero == 3045) {
+                alert(`Sorteou finalmente!`)
+                break
+                // -> sai de uma estrutura de repetição imediatamente e funciona com for e while
+            }
+        }
+
+        alert(`Foram realizados ${contador} sorteios!`)
+    }
+</script>

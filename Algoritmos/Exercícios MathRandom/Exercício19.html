@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número da sorte 2</title>
+</head>
+
+<body>
+
+    Qual o seu nome? <input id="in_nome"><br>
+    Qual seu 1° número da sorte?(Esse número tem que estar entre 1 e 10)<br>
+    <input id="in_NumeroSorte"><br>
+    Qual seu 2° número da sorte?(Esse número tem que estar entre 1 e 10)<br>
+    <input id="in_NumeroSorte2"><br>
+    Qual seu 3° número da sorte?(Esse número tem que estar entre 1 e 10)<br>
+    <input id="in_NumeroSorte3"><br>
+    <button onclick="sortear()">Sortear número</button><br>
+
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    function sortear() {
+        var nome = in_nome.value
+        var NumeroSorte = Number(in_NumeroSorte.value)
+        var NumeroSorte2 = Number(in_NumeroSorte2.value)
+        var NumeroSorte3 = Number(in_NumeroSorte3.value)
+
+
+        if ((NumeroSorte < 1 || NumeroSorte > 10) && (NumeroSorte2 < 1 || NumeroSorte2 > 10) && (NumeroSorte3 < 1 || NumeroSorte > 10)) {
+            alert("ESSE NÚMERO TEM QUE ESTAR ENTRE 1 E 10")
+        } else {
+            for (var contador = 0; sorte != NumeroSorte; contador++) {
+                var sorte = parseInt(1 + Math.random() * 10)
+
+                if (sorte == NumeroSorte) {
+                    div_out.innerHTML = `Parabéns ${nome}, o seu número da sorte ${NumeroSorte} foi sorteado ${contador} vezes<br>`
+                }
+            } for (var contador2 = 0; sorte2 != NumeroSorte2; contador2++) {
+                var sorte2 = parseInt(1 + Math.random() * 10)
+
+                if (sorte2 == NumeroSorte2) {
+                    div_out.innerHTML += `Parabéns ${nome}, o seu número da sorte ${NumeroSorte2} foi sorteado ${contador2} vezes<br>`
+                }
+            } for (var contador = 0; sorte3 != NumeroSorte3; contador3++) {
+                var sorte3 = parseInt(1 + Math.random() * 10)
+
+                if (sorte3 == NumeroSorte3) {
+                    div_out.innerHTML += `Parabéns ${nome}, o seu número da sorte ${NumeroSorte3} foi sorteado ${contador3} vezes`
+                }
+            }
+
+        }
+    }
+</script>

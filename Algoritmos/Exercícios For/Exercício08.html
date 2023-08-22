@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coca-Cola</title>
+</head>
+
+<body>
+    Quantas latas de coca você bebeu na vida?:<br>
+    <input id="in_coca"><br>
+    <button onclick="Ver()">Ver a quantidade</button>
+    <div id="div_out"></div>
+    <img src="" alt="">
+</body>
+
+</html>
+<script>
+    function ver() {
+        var coca = Number(in_coca.value)
+
+        for (var contador = 0; contador < coca; contador++) {
+            div_out.innerHTML += `<img src="https://www.thebakers.com.br/wp-content/uploads/2019/05/coca-600x540-600x540.png" style="height:350px;">`
+        }
+    }
+</script>

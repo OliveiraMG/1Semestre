@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="digite um número qlqr" id="in_num"><br>
+    <button onclick="analise()">Analisar histórico</button>
+    <div id="mostrar"></div>
+    <div id="mostrar1"></div>
+</body>
+
+</html>
+<script>
+    var lista = []
+    var numMaior = 0
+    var numMenor = null
+    function analise() {
+        var numero = Number(in_num.value);
+        lista.push(numero);
+        repetir();
+        mostrar1.innerHTML=`Maior Numero : ${numMaior} <br>
+        Menor número : ${numMenor}`
+    }
+    function repetir() {
+        mostrar.innerHTML=``
+        for (var index = 0; index < lista.length; index++) {
+            var numeros = lista[index];
+            if (lista[index] > numMaior) {
+                numMaior = lista[index]
+            }
+            if (lista[index] < numMenor || numMenor == null) {
+                numMenor = lista[index]
+            }
+            mostrar.innerHTML+=`
+                ${index+1} Número : ${lista[index]}<br> 
+            `
+        }
+    }
+</script>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiosque de coco</title>
+</head>
+<body>
+
+<div id="div_container1">
+    <H1>Quiosque Mirosmar - Controle de vendas</H1>
+    <h2>--------Abertura do quiosque--------</h2>
+    Entre com a quantidade de Água engarrafada no estoque:
+    <input placeholder="Águas Engarrafadas" id="in_engarrafada"><br>
+    Entre com a quantidade de Coco fechado no estoque:
+    <input placeholder="Cocos" id="in_coco"><br>
+    <button onclick="abrir()">Abrir Quiosque</button>
+</div>
+
+<div id="div_container2">
+    <h2>--------Estoque inicial--------</h2>
+    Água engarrafada: <div id="div_AEestoque"></div>
+    Coco fechado: <div id="div_CFestoque"></div>
+</div>
+
+<div id="div_container3">
+    <h2>--------Registro de operações de venda--------</h2>
+    Entre com a quantidade vendida:
+    <input placeholder="Quantidade Vendida" id="in_qtdVenda">
+    Informe o produto vendido:
+    <select name="" id="sel_prod">
+        <option value="">- Selecione um produto -</option>
+        <option value="coco">Coco fechado</option>
+        <option value="engarrafada">Água engarrafada</option>
+    </select>
+    <button onclick="registrar()">Registrar a Venda</button>
+    <button onclick="encerrar()" style="background-color: red;">Encerrar o turno</button>
+    <div id="div_out"></div>
+</div>
+
+</body>
+</html>
+<script>
+    div_out.innerHTML = ''
+    function abrir() {
+        var engarrafada = Number(in_engarrafada.value)
+        var coco = Number(in_coco.value)
+        
+        if (engarrafada <= 100) {
+            div_out.innerHTML += "Com essa quantidade de Água engarrafada não dá para abrir o quiosque"
+        }
+
+        if (coco <= 200) {
+            div_out.innerHTML += "Com essa quantidade de Coco fechado não dá para abrir o quiosque"
+        }
+
+        if (engarrafada > 100 && engarrafada <= 1000) {
+            div_out.innerHTML += "Engarrafe mais água de coco"
+        }
+
+        if (coco > 200 && coco <= 2000) {
+            div_out.innerHTML += "Compre mais cocos"
+        }
+
+        else {
+            div_AEestoque.innerHTML = `${engarrafada}`
+            div_CFestoque = `${coco}`
+        }
+    }
+
+    function registrar() {
+        var engarrafada = Number(in_engarrafada.value)
+        var coco = Number(in_coco.value)
+        var QtdVenda = Number(in_qtdVenda.value)
+        var produto = sel_prod.value
+        var estoqueAtualA = engarrafada - QtdVenda
+        var estoqueAtualC = coco - QtdVenda
+
+        if (produto == 'engarrafada') {
+            div_out.innerHTML += `Com a venda de ${QtdVenda} de ${produto} o saldo no estoque é de ${estoqueAtualA}`
+        } else {
+            div_out.innerHTML += `Com a venda de ${QtdVenda} de ${produto} o saldo no estoque é de ${estoqueAtualC}`
+        }
+    }
+    
+    div_out.innerHTML = ''
+    function encerrar() {
+        var engarrafada = Number(in_engarrafada.value)
+        var coco = Number(in_coco.value)
+        var QtdVenda = Number(in_qtdVenda.value)
+        var produto = sel_prod.value
+        var estoqueAtualA = engarrafada - QtdVenda
+        var estoqueAtualC = coco - QtdVenda
+        // NÃO SOUBE COMO REALIZAR ESSA PARTE, PEÇO PERDÃO
+        var VendasTotais =
+        var porcentagemA = 
+
+        div_out.innerHTML = `<h1>Vendas de água engarrafada</h1><br>
+        Saldo do produto no estoque: ${estoqueAtualA}<br>
+        Quantidade de vendas: ${QtdVenda}<br>
+        Porcentagem das vendas: ${}`
+
+        div_out.innerHTML = `<h1>Vendas de coco fechado</h1><br>
+        Saldo do produto no estoque: ${estoqueAtualC}<br>
+        Quantidade de vendas: ${QtdVenda}<br>
+        Porcentagem das vendas: ${}`
+    }
+</script>

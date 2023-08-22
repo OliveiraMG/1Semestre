@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura</title>
+</head>
+
+<body>
+
+    Clique no botão para sortear a temperatura:<br>
+    <button onclick="sorteio()">Sortear temperatura</button>
+    <div id="div_out"></div>
+
+</body>
+
+</html>
+<script>
+    function sorteio() {
+        var tempSorte = (-20) + parseInt(Math.random() * ((20 + 1) - (-20)))
+
+        div_out.innerHTML = ""
+
+        div_out.innerHTML += `Temperatura sorteada: ${tempSorte} <br>`
+
+        if (tempSorte < 1) {
+            div_out.innerHTML += "Da pra conservar qlqr alimento"
+        } else if (tempSorte <= 10) {
+            div_out.innerHTML += "Conserva a maioria dos alimentos."
+        } else {
+            div_out.innerHTML += "Estraga quase tudo"
+        }
+
+
+    }
+</script>

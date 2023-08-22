@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+</head>
+<body>
+    Qual a distância da corrida?(Km)<br>
+    <input id="in_corrida"><br><br>
+    Qual o volume de chamadas?(0-100)<br>
+    <input id="in_chamada"><br><br>
+    <button onclick="calcular()">Calcular custo da viagem</button>
+    <div id="div_corridas"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var valor1 = (Number(in_corrida.value))
+        var valor2 = (Number(in_chamada.value))
+        var valor3 = (Number(valor1 * 1.50) + 7)
+        var valorD = (Number(valor3 * 0.05))
+        var valorA = (Number(valor3 * 0.50))
+        var result1 = (Number(valor3 - valorD))
+        var result2 = (Number(valor3 + valorA))
+        var Y1 = (Number(result1 * 0.02))
+        var Y2 = (Number(result2 * 0.02))
+        var Z1 = (Number(result1 - Y1))
+        var Z2 = (Number (result2 - Y2))
+        if (valor2 < 20) {
+            div_corridas.innerHTML = `O valor final da corrida para o cliente será de R$${result1} <br>
+            O valor descontado do motorista será R$${Y1}, logo ele receberá um valor líquido de R$${Z1} <br>`
+        } else {
+            div_corridas.innerHTML = `O valor final da corrida para o cliente será de R$${result2}<br>
+            O valor descontado do motorista será R$${Y2}, logo ele receberá um valor líquido de R$${Z2}<br>`
+        }
+    }
+</script>

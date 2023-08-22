@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobremesa</title>
+</head>
+
+<body>
+    Qual sobremesa você comeu?
+    <input placeholder="Sobremesa" id="in_sobremesa"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="mostrar()">Mostrar todas</button>
+    <div id="div_sobremesa"></div>
+</body>
+
+</html>
+
+<script>
+    var sobremesas = []
+
+    function cadastrar() {
+        sobremesas.push(in_sobremesa.value)
+    }
+
+    function mostrar() {
+        div_sobremesa.innerHTML = ''
+
+        for(var indice = 0; indice < sobremesas.length; indice++) {
+            var atual = sobremesas[indice]
+            div_sobremesa.innerHTML += `${indice + 1} - ${atual}<br>`
+        }
+    }
+</script>

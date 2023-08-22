@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+<body>
+    Registro de pizza <br><br>
+
+    Sabor da pizza: <input type="text" id="in_sabor">
+    Preço da pizza: <input type="text" id="in_preco">
+    Prazo de entrega: <input type="text" id="in_entrega"><br><br>
+
+    <button onclick="registrar()">Pedir pizza!</button>
+
+    <div id="div_resultado">
+        Seu pedido aparecerá aqui
+    </div>
+</body>
+</html>
+
+<script>
+
+function registrar() {
+    div_resultado.innerHTML = `Pizza de ${in_sabor} que custou ${in_preco} chegará em ${in_entrega}`
+}
+
+</script>

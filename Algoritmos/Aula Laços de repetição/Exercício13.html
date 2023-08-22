@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    Qual a tabuada que você quer?<br>
+    <select id="sel_tabuada">
+        <option value="">-Escolha uma tabuada-</option>
+        <option value="2">Tabuada do 2</option>
+        <option value="3">Tabuada do 3</option>
+        <option value="4">Tabuada do 4</option>
+        <option value="5">Tabuada do 5</option>
+        <option value="6">Tabuada do 6</option>
+        <option value="7">Tabuada do 7</option>
+        <option value="8">Tabuada do 8</option>
+        <option value="9">Tabuada do 9</option>
+
+    </select><br><br>
+    Até que número a tabuada deve ser construída?<br>
+    <input placeholder="Numero" id="in_numero"><br><br>
+    <button onclick="ver()">Ver tabuada</button><br>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function ver() {
+        var tabuada = Number(sel_tabuada.value)
+        var numero = Number(in_numero.value)
+        var contador = 0
+        
+            while (contador < numero) {
+                contador++
+                var resultado = Number(tabuada * contador)
+                if (resultado % 2 == 0) {
+                    div_out.innerHTML += `<span style="color: red;">${tabuada} * ${contador} = ${resultado}<br></span>`
+            } else {
+                div_out.innerHTML += `<span style="color: blue;">${tabuada} * ${contador} = ${resultado}<br></span>`
+            }
+        }
+        }
+</script>

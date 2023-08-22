@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    cadastrar filmes<br>
+    <input id="in_filme1"><Br>
+    <button onclick="cadastrar()">Cadastrar filmes</button>
+    <div id="msg">
+    </div>
+</body>
+</html>
+<script>
+    var filmes = []
+    function cadastrar(){
+        msg.innerHTML=``
+        var filme = in_filme1.value
+        filmes.push(filme);
+        for(var index = 0;index<filmes.length;index++){
+            msg.innerHTML+=`${filmes[index]}<br>`
+            filmes.reverse();
+        }
+      
+    }
+</script>

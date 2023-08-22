@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passagem</title>
+</head>
+<body>
+    
+    Qual o valor da passagem?<br>
+    <input id="in_valor"><br><br>
+
+    Quantas viagens você fará por mês?<br>
+    <input id="in_viagem"><br><br>
+
+    <button onclick="economia()">Ver economia!</button>
+</body>
+</html>
+
+<script>
+    function economia() {
+        alert(`Você economizará R$ ${Number(in_valor.value) * Number(in_viagem.value) * 0.5} por mês`)
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número da sorte</title>
+</head>
+
+<body>
+
+    Qual o seu nome?<br>
+    <input id="in_nome"><br>
+    Qual seu número da sorte?(Esse número tem que estar entre 1 e 10)<br>
+    <input id="in_NumeroSorte"><br>
+    <button onclick="sortear()">Sortear número</button>
+
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    function sortear() {
+        var nome = in_nome.value
+        var NumeroSorte = Number(in_NumeroSorte.value)
+
+        if (NumeroSorte < 1 || NumeroSorte > 10) {
+            alert("ESSE NÚMERO TEM QUE ESTAR ENTRE 1 E 10")
+        } else {
+            for (var contador = 0; sorte != NumeroSorte; contador++) {
+                var sorte = parseInt(1 + Math.random() * 10)
+
+                if (sorte == NumeroSorte) {
+                    div_out.innerHTML = `Parabéns ${nome}, o seu número da sorte ${NumeroSorte} foi sorteado ${contador} vezes`
+                }
+            }
+        }
+    }
+</script>

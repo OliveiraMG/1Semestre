@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Continuada 3</title>
+</head>
+<body onload="carregar()">
+    Pontos Jogador: <b id="b_jogador">0</b><br><br>
+    Pontos Adversário: <b id="b_adversário">0</b><br><br>
+    <button onclick="simular()">Simular Batalha</button><br><br>
+    <img id="imgJogador" style="height: 150px;">
+    <div id="div_vs"></div>
+    <img id="imgAdversario" style="height: 150px;">
+    <div id="div_out"></div>
+    <h2>Baralho restante:</h2>
+    <div id="div_restante"></div><br><br>
+</body>
+</html>
+
+<script>
+
+var pilhaGeral = [
+
+Capitao = {
+    Poder: 3,
+    Resistência: 3,
+    imagem: "<img src='cartas/capitao_america.png' style='height: 200px;'>",
+},
+deadPool = {
+    Poder: 1,
+    Resistência: 1,
+    imagem: "<img src='cartas/deadpool.png' style='height: 200px;'>",
+},
+iron = {
+    Poder: 5,
+    Resistência: 0,
+    imagem: "<img src='cartas/homem_de_ferro.png' style='height: 200px;'>",
+},
+mercurio = {
+    Poder: 1,
+    Resistência: 2,
+    imagem: "<img src='cartas/mercurio.png' style='height: 200px;'>",
+},
+invisivel = {
+    Poder: 2,
+    Resistência: 2,
+    imagem: "<img src='cartas/mulher_invisivel.png' style='height: 200px;'>",
+},
+fantastico = {
+    Poder: 3,
+    Resistência: 2,
+    imagem: "<img src='cartas/sr_fantastico.png' style='height: 200px;'>",
+},
+thor = {
+    Poder: 3,
+    Resistência: 4,
+    imagem: "<img src='cartas/thor.png' style='height: 200px;'>",
+},
+venom = {
+    Poder: 3,
+    Resistência: 1,
+    imagem: "<img src='cartas/venom.png' style='height: 200px;'>",
+},
+viuvaNegra = {
+    Poder: 2,
+    Resistência: 1,
+    imagem: "<img src='cartas/viuva_negra.png' style='height: 200px;'>",
+},
+wolverine = {
+    Poder: 2,
+    Resistência: 3,
+    imagem: "<img src='cartas/wolverine.png' style='height: 200px;'>",
+}
+
+
+] 
+    for (let index = 0; index < pilhaGeral.length; index++) {
+        
+    div_restante.innerHTML += `${pilhaGeral[index].imagem}`
+
+    }
+
+
+
+    function simular() {
+        div_restante.innerHTML = ''
+        for (var index = 0; index <= 9; index++) {
+
+            var sorteado = 1 + parseInt(Math.random() * 10)
+            
+            var imagemHeroi
+
+            if (sorteado == 1) {
+                imagemHeroi = 'cartas/capitao_america'
+            } else if (sorteado == 2) {
+                imagemHeroi = 'cartas/deadpool'
+            } else if (sorteado == 3) {
+                imagemHeroi = 'cartas/homem_de_ferro'
+            } else if (sorteado == 4) {
+                imagemHeroi = 'cartas/mercurio'
+            } else if (sorteado == 5) {
+                imagemHeroi = 'cartas/mulher_invisivel'
+            } else if (sorteado == 6) {
+                imagemHeroi = 'cartas/sr_fantastico'
+            } else if (sorteado == 7) {
+                imagemHeroi = 'cartas/thor'
+            } else if (sorteado == 8) {
+                imagemHeroi = 'cartas/venom'
+            } else if (sorteado == 9) {
+                imagemHeroi = 'cartas/viuva_negra'
+            } else {
+                imagemHeroi = 'cartas/wolverine'
+            }
+
+            var imgHeroi
+
+            if (index == 1) {
+                div_vs.innerHTML = 'VS.'
+                imgHeroi = imgJogador
+            } else if (imgJogador == imgAdversario) {
+                div_vs.innerHTML = 'VS.'
+                imgHeroi = imgAdversario
+            } else {
+                div_vs.innerHTML = 'VS.'
+                imgHeroi = imgAdversario
+            }
+            imgHeroi.src = `${imagemHeroi}.png`
+        }
+        
+        
+        var imagemHeroi1 = imgJogador.src
+        var imagemHeroi2 = imgAdversario.src
+
+        var vencedor
+    }
+
+</script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula SPTECHt</title>
+</head>
+
+<body>
+    <label for="in_nome">Nome do piloto:</label>
+    <input placeholder="Nome" id="in_nome"><br>
+    <button onclick="registrar()">Registrar</button><br>
+    <button onclick="Realizar()">Realizar Corrida</button><br>
+    <div id="div_out"></div>
+</body>
+
+</html>
+
+<script>
+    var participantes = []
+
+    function registrar() {
+        if (participantes.length < 12) {
+            var registro = {
+                nome: in_nome.value,
+                voltas: [],
+                velocidade: [],
+                tempo: [],
+                combustivel: [],
+            }
+            participantes.push(registro)
+
+        } else {
+
+            alert(`O limite máximo de participantes é 12`)
+
+        }
+    }
+
+
+    function Realizar() {
+
+        if (participantes.length >= 5 && participantes.length <= 12) {
+
+            for (let i = 0; i < participantes.length; i++) {
+
+                var pilotoAtual = participantes[i]
+                var combustivel = 75
+                var volta = 0
+
+                for (let i = 0; i < 15; i++) {
+                    volta += 1
+
+                    var VelocidadeAtual = 210 + parseInt(Math.random() * (290 + 1 - 210))
+
+                    pilotoAtual.velocidade.push(VelocidadeAtual)
+
+                    pilotoAtual.voltas.push(volta)
+
+
+
+                    if (VelocidadeAtual > 250) {
+
+                        var usoMédio = 5
+                        var porcentagem = 100 - ((VelocidadeAtual / 250) * 100)
+                        var usoAtual = (usoMédio * (porcentagem / 100)) + usoMédio
+                        combustivel = combustivel - usoAtual
+                        pilotoAtual.combustivel.push(combustivel)
+                        
+                    } else if (VelocidadeAtual < 250) {
+
+                        var usoMédio = 5
+                        var porcentagem = 100 - ((VelocidadeAtual / 250) * 100)
+                        var usoAtual = (usoMédio * (porcentagem / 100)) - usoMédio
+                        combustivel = combustivel - usoAtual
+                        pilotoAtual.combustivel.push(combustivel)
+
+                    } else {
+
+                        var usoMédio = 5
+                        combustivel = combustivel - usoMédio
+                        pilotoAtual.combustivel.push(combustivel)
+
+                    }
+
+                    var VariacaoTempo = (20 / 250) * 60
+                    pilotoAtual.tempo.push(VariacaoTempo)
+
+                    div_out.innerHTML += `Volta ${pilotoAtual.volta[i]} - Piloto: ${pilotoAtual.nome[i]} - Velocidade: ${pilotoAtual.velocidade[i]} - Combustível: ${pilotoAtual.combustivel[i]} - Tempo: ${pilotoAtual.tempo[i]}<br>`
+                }
+
+            }
+
+
+            // SÓ PARA AVISAR, NÃO CONSEGUI PROSSEGUIR O EXERCÍCIO DAQUI EM DIANTE
+
+        } else {
+            alert(`A corrida não tem o número de pilotos necessário!`)
+        }
+    }
+</script>

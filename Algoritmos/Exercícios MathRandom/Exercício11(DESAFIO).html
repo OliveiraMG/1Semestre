@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q11</title>
+</head>
+<body>
+    <h2>Pedra papel tesoura</h2>
+
+    <button onclick="jogar()">Jogar</button>
+    <br><br>
+
+    <img id="img1" style="height: 150px">
+    
+    <img id="img2" style="height: 150px">
+
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+
+    function jogar() {
+        div_resultado.innerHTML = ''
+
+        for (var contador = 1; contador <= 2; contador++) {
+            var sorteado = parseInt(1 + Math.random() *3)
+
+            var imagem
+            if (sorteado == 1) {
+                imagem = 'pedra'
+            } else if (sorteado == 2) {
+                imagem = 'papel'
+            } else {
+                imagem = 'tesoura'
+            }
+            /*
+            if (contador == 1) {
+                img1.src = `${imagem}.jpg`
+            } else {
+                img2.src = `${imagem}.jpg`
+            }*/
+            var img
+            if (contador == 1) {
+                img = img1
+            } else {
+                img = img2
+            }
+            img.src = `${imagem}.jpg`
+        }
+
+        var imagem1 = img1.src
+        var imagem2 = img2.src
+
+        var vencedor
+        var mao_vence
+        var mao_perde
+        var motivo
+
+        if (imagem1 == imagem2) {
+            div_resultado.innerHTML = 'EMPATE! Jogue novamente! '
+        } else {
+            if (imagem1.indexOf('pedra.jpg')>0) {
+                if (imagem2.indexOf('papel.jpg')>0) {
+                    vencedor = 2
+                    mao_vence = 'Papel'
+                    mao_perde = 'Pedra'
+                    motivo = 'cobre'
+                } else {
+                    vencedor = 1
+                    mao_vence = 'Pedra'
+                    mao_perde = 'Tesoura'
+                    motivo = 'quebra'
+                }
+            } else if (imagem1.indexOf('papel.jpg')>0) {
+                if (imagem2.indexOf('pedra.jpg')>0) {
+                    vencedor = 1
+                    mao_vence = 'Papel'
+                    mao_perde = 'Pedra'
+                    motivo = 'cobre'
+                } else {
+                    vencedor = 2
+                    mao_vence = 'Tesoura'
+                    mao_perde = 'Papel'
+                    motivo = 'corta'
+                }
+            } else { // aqui o 1º é tesoura
+                if (imagem2.indexOf('pedra.jpg')>0) {
+                    vencedor = 2
+                    mao_vence = 'Pedra'
+                    mao_perde = 'Tesoura'
+                    motivo = 'quebra'
+                } else { // o 2º é papel
+                    vencedor = 1
+                    mao_vence = 'Tesoura'
+                    mao_perde = 'Papel'
+                    motivo = 'corta'
+                }
+            }
+
+            div_resultado.innerHTML = `
+                Jogador ${vencedor} venceu porque 
+                ${mao_vence} ${motivo} ${mao_perde} 
+            `
+            
+        }
+    }
+
+</script>

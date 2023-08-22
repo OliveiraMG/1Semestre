@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dado</title>
+</head>
+
+<body>
+    Clique no botão para jogar o dado:<br>
+    <button onclick="jogar()">Jogar dado</button>
+    <div id="div_out"></div>
+</body>
+
+</html>
+<script>
+    function jogar() {
+        var sorte = 1 + parseInt(Math.random() * 6)
+
+        if (sorte == 1) {
+            div_out.innerHTML = `<img src= "http://tex22.info/rm/CS4-Teacher/Content/Resources/Images/Computer%20Science/CS%203%20and%204/dice%201.png"; height= "150px"></img>`
+        } else if (sorte == 2) {
+            div_out.innerHTML = `<img src= "http://tex22.info/rm/CS4-Teacher/Content/Resources/Images/Computer%20Science/CS%203%20and%204/dice%202.png"; height= "150px"></img>`
+        } else if (sorte == 3) {
+            div_out.innerHTML = `<img src= "http://tex22.info/rm/CS4-Teacher/Content/Resources/Images/Computer%20Science/CS%203%20and%204/dice%203.png"; height= "150px"></img>`
+        } else if (sorte == 4) {
+            div_out.innerHTML = `<img src= "http://tex22.info/rm/CS4-Teacher/Content/Resources/Images/Computer%20Science/CS%203%20and%204/dice%204.png"; height= "150px"></img>`
+        } else if (sorte == 5) {
+            div_out.innerHTML = `<img src= "http://tex22.info/rm/CS4-Teacher/Content/Resources/Images/Computer%20Science/CS%203%20and%204/dice%205.png"; height= "150px"></img>`
+        } else {
+            div_out.innerHTML = `<img src="http://tex22.info/rm/CS4-Teacher/Content/Resources/Images/Computer%20Science/CS%203%20and%204/dice%206.png"; height= "150px"></img>`
+        }
+    }
+
+</script>

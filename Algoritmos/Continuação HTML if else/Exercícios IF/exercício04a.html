@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o valor da pizza?<br>
+    <input id="in_valor"><br><br>
+    Quantos amigos dividirão a pizza?<br>
+    <input id="in_amigos"><br><br>
+
+    <button onclick="pizzinha()">Rola a pizza?</button>
+    <div id="div_desempenho"></div>
+    <b><i><div id='div_desempenho2' style="color: blue"></div></i></b>
+</body>
+</html>
+<script>
+    function pizzinha() {
+        var preco = Number(in_valor.value) / Number(in_amigos.value)
+        div_desempenho.innerHTML = `Cada amigo vai pagar R$${preco} pela pizza<br>`
+
+        if (preco > 20.00) {
+            div_desempenho2.innerHTML += `Deu ruim, pizza muito cara!`
+        }
+    }
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota e frequência</title>
+</head>
+
+<body>
+
+    Clique no botão para gerar nota:<br>
+    <button onclick="nota()">Gerar uma nota de aluno entre 0 e 10</button><br>
+    Clique no botão para gerar frequência:<br>
+    <button onclick="frequencia()">Gerar uma frequência de aluno entre 0 e 100</button><br>
+
+    Confira se está aprovado:
+    <button onclick="aprovar()">Aprovado?</button>
+
+    <div id="div_outNota"></div>
+    <div id="div_outFreq"></div>
+
+</body>
+
+</html>
+<script>
+
+    var notaF = 0
+
+    var freqF = 0
+
+    function nota() {
+        var nota = Number((3 + (Math.random() * (11 - 3))).toFixed(1))
+
+        if (nota < 10) {
+            div_outNota.innerHTML = `${nota} <br>`
+        } else {
+            div_outNota.innerHTML = `${parseInt(nota)} <br>`
+
+        }
+        notaF = nota
+    }
+
+    function frequencia() {
+        var freq = Number((50 + (Math.random() * (101 - 50))).toFixed(1))
+
+        if (freq < 100) {
+            div_outFreq.innerHTML = `${freq} <br>`
+        } else {
+            div_outFreq.innerHTML = `${parseInt(freq)} <br>`
+        }
+
+        freqF = freq
+
+    }
+
+    function aprovar() {
+
+        if (notaF >= 6 && freqF >= 75) {
+            alert("Aprovado")
+        } else {
+            alert("Reprovado")
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolates</title>
+</head>
+
+<body>
+    Quantidade de chocolates: <input type="text" id="in_qtd"><br>
+    <button onclick="comprar()">Compra</button><br>
+    <div id="div_out"></div>
+</body>
+</html>
+
+<script>
+    function comprar() {
+        var qtd = Number(in_qtd.value)
+        var preco = 3.00
+
+        var out = qtd > 12 ? preco = (preco - 0.50).toFixed(2) : preco.toFixed(2)
+
+        div_out.innerHTML = out
+
+    }
+
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrecadação de futebol</title>
+</head>
+<body>
+    Quantos ingressos de estudante foram vendidos? <input id="in_estudante"><br>
+    Quantos ingressos comuns foram vendidos? <input id="in_comum"><br>
+    Quando custa um ingresso comum? <input id="in_preco"><br>
+
+    <button onclick="calculo()">Calcular Arrecadação</button> 
+</body>
+</html>
+
+<script>
+    function calculo() {
+        alert(`A arrecadação foi de R$${((Number(in_estudante.value) * Number(in_preco.value))/2) + (Number(in_comum.value) * Number(in_preco.value))}`)
+    }
+</script>

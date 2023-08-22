@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares em intervalos</title>
+</head>
+<body>
+    Qual o valor de início?<br>
+    <input placeholder="Valor Inicial" id="in_valorI"><br><br>
+    Qual o valor final?<br>
+    <input placeholder="Valor Final" id="in_valorF"><br><br>
+    <button onclick="exibir()">S2 Pares</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function exibir() {
+        var ValorInicial = Number(in_valorI.value)
+        var ValorFinal = Number(in_valorF.value)
+
+        while(ValorInicial < ValorFinal) {
+            if (ValorInicial %2 == 0) {
+            div_out.innerHTML += `${ValorInicial}<br>`
+            ValorInicial += 2
+            } else {
+                div_out.innerHTML = ''
+            }
+        }
+    }
+</script>

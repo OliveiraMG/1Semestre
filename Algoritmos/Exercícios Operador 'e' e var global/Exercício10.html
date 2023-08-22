@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altura</title>
+</head>
+<body>
+    Qual a altura inicial?<br>
+    <input id="in_AlturaI"><br><br>
+    Qual a altura final?<br>
+    <input id="in_AlturaF"><br><br>
+    Qual o seu nome?<br>
+    <input id="in_nome"><br><br>
+    Qual a sua altura?<br>
+    <input id="in_altura"><br><br>
+    <button onclick="cadastro()">Cadastrar</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    function cadastro() {
+        var ai = Number(in_AlturaI.value)
+        var af = Number(in_AlturaF.value)
+        var nome = in_nome.value
+        var ap = Number(in_altura.value)
+
+        if (ai > 1 && af > ai) {
+
+            if (ap > ai && ap < af) {
+                div_out.innerHTML = `O candidato ${nome} com altura de ${ap} participará do processo de seleção de piloto`
+            } else {
+                div_out.innerHTML =`Infelizmente o candidato ${nome} com altura de ${ap} não atende os requisitos`
+            }
+         } 
+        else {
+            alert(`OS VALORES SÃO INVÁLIDOS`)
+        }
+
+
+    }
+
+    
+</script>

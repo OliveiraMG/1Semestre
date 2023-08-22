@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times São Paulo</title>
+</head>
+<body>
+    Qual time de SP você torce?<br>
+    <select id="sel_times">
+        <option value="">- Escolha um time -</option>
+        <option value="Corinthians">Corinthians</option>
+        <option value="Palmeiras">Palmeiras</option>
+        <option value="Santos">Santos</option>
+        <option value="São Paulo">São Paulo</option>
+    </select><br><br>
+    <button onclick="verificar()">Fale sobre esse time</button>
+    <div id="div_times"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var time = sel_times.value
+        if (time == "Corinthians") {
+            div_times.innerHTML = "<span style='background-color: black; color: white'>Salve galinhada</span>"
+        } else if (time == "Palmeiras") {
+            div_times.innerHTML = "<span style='background-color: green; color: white'>51 é pinga</span>"
+        } else if (time == "Santos") {
+            div_times.innerHTML = "<span style='background-color: white; color: black'>Você tem mais de 80</span>"
+        } else if (time == "São Paulo") {
+            div_times.innerHTML = "<span style='background-color: black; color: red'>SALVE OH TRICOLOR PAULISTA</span>"
+        }
+    }
+</script>

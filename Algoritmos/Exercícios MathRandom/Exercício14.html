@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média avaliações</title>
+</head>
+
+<body>
+
+    Clique no botão para obter uma avaliação aleatória:<br>
+    <button onclick="avaliar()">Avaliar</button><br>
+    Clique no botão para obter a média das avaliações realizadas:<br>
+    <button onclick="equipar()">Equipe</button><br>
+    <div id="div_out"></div>
+    <div id="div_img"></div>
+
+</body>
+
+</html>
+<script>
+    var soma = 0
+    var divisor = 0
+
+    function avaliar() {
+        var sorte = Number((Math.random() * 5).toFixed(1))
+
+        div_out.innerHTML = ""
+        div_img.innerHTML = ""
+
+        div_out.innerHTML += `Nota recebida: ${sorte}<br>`
+
+        if (sorte <= 0.5) {
+            div_out.innerHTML += `MUITO TRISTE<br>`
+            div_img.innerHTML += `<img src= "https://cdn.shopify.com/s/files/1/1061/1924/files/Sad_Face_Emoji_Icon_60x60.png"></img><br>`
+            soma = soma + sorte
+
+        } else if (sorte <= 1.5) {
+            div_out.innerHTML += `UM POUCO TRISTE.<br>`
+            div_img.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Confused_Face_Emoji_60x60.png"></img>`
+            soma = soma + sorte
+
+        } else if (sorte <= 3.5) {
+            div_out.innerHTML += `NEUTRO<br>`
+            div_img.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Unamused_Face_Emoji_Icon_60x60.png"></img>`
+            soma = soma + sorte
+
+        } else if (sorte <= 4.5) {
+            div_out.innerHTML += `Feliz<br>`
+            div_img.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Slightly_Smiling_Face_Emoji_Icon_60x60.png"></img>`
+            soma = soma + sorte
+
+        } else {
+            div_out.innerHTML += `MUITO FELIZZ =]<br>`
+            div_img.innerHTML += `<img src= "https://cdn.shopify.com/s/files/1/1061/1924/files/Smiling_Emoji_with_Eyes_Opened_Icon_60x60.png"></img>"`
+            soma = soma + sorte
+
+        }
+        divisor++
+    }
+
+    function equipar() {
+        var media = soma / divisor
+
+        div_out.innerHTML = ""
+        div_img.innerHTML = ""
+
+        div_out.innerHTML += `Média recebida: ${media}<br>`
+
+
+        if (media <= 0.5) {
+            div_out.innerHTML += `MUITO TRISTE<br>`
+            div_img.innerHTML += `<img src= "https://cdn.shopify.com/s/files/1/1061/1924/files/Sad_Face_Emoji_Icon_60x60.png"></img><br>`
+
+        } else if (media <= 1.5) {
+            div_out.innerHTML += `UM POUCO TRISTE.<br>`
+            div_img.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Confused_Face_Emoji_60x60.png"></img>`
+
+        } else if (media <= 3.5) {
+            div_out.innerHTML += `NEUTRO<br>`
+            div_img.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Unamused_Face_Emoji_Icon_60x60.png"></img>`
+
+        } else if (media <= 4.5) {
+            div_out.innerHTML += `Feliz<br>`
+            div_img.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Slightly_Smiling_Face_Emoji_Icon_60x60.png"></img>`
+
+        } else {
+            div_out.innerHTML += `MUITO FELIZZ =]<br>`
+            div_img.innerHTML += `<img src= "https://cdn.shopify.com/s/files/1/1061/1924/files/Smiling_Emoji_with_Eyes_Opened_Icon_60x60.png"></img>"`
+
+        }
+    }
+</script>

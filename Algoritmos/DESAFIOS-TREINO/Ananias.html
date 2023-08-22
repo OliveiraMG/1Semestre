@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananias</title>
+</head>
+<body>
+    <label for="">Qual o código do produto?</label>
+    <input type="text" id="in_codigo"><br>
+    <label for="">Qual o nome do produto?</label>
+    <input type="text" id="in_nome"><br>
+    <label for="">Qual a quantidade de produto no estoque?</label>
+    <input type="text" id="in_qtd"><br>
+    <button onclick="salvar()">Salvar Produto</button>
+    <button onclick="ver()">Ver estoque</button>
+    <div id="div_out"></div>
+</body>
+</html>
+<script>
+    var codigo 
+    var nome
+    var qtd
+    var valid
+    div_out.innerHTML = ''
+
+    var estoque = [{
+        code: 0,
+        name: '',
+        Qtd: 0
+    }]
+
+    var controle = []
+    
+    function salvar() {
+        codigo =  Number(in_codigo.value)
+        nome  = in_nome.value
+        qtd = Number(in_qtd.value)
+        valid = codigo == '' || nome == '' || qtd == ''
+
+        if (valid == true) {
+            if(codigo == ''){
+                alert(`Código inválido para o produto`)
+            }else if (nome == ''){
+                alert(`Nome inválido para o produto`)
+            }else{
+                alert(`Quantidade inválida para o produto`)
+            }
+        } 
+
+        if (!valid) {
+            if(estoque.length==0) {
+                estoque.push({
+                    code: in_codigo.value,
+                    name: in_nome.value,
+                    Qtd: in_qtd.value
+                })
+                controle.push(in_codigo.value)
+                div_out.innerHTML="Produto cadastrado!"
+            }else if (controle.indexOf(in_codigo.value)>=0){
+                for (let index = 0; index < estoque.length; index++) {
+                    if(estoque[index].code==in_codigo.value){
+                        estoque[index].quant=estoque[index].quant+Number(in_quant.value)
+                        div_out.innerHTML=`O produto de código ${estoque[index].code} teve sua quantidade aumentada`
+    
+                    }
+                    }
+            }else {
+
+                estoque.push({
+                        code:in_codigo.value,
+                        name:in_nome.value,
+                        Qtd:quant
+                        })
+                controle.push(in_codigo.value)
+                div_out.innerHTML="Produto cadastrado!"        
+            }
+            
+            }
+        }
+
+        function ver(){
+            div_out.innerHTML=`<b>Relatório de produtos Cadastrados :</b> <br>`
+            for (let index = 0; index < estoque.length; index++) {
+                div_out.innerHTML+=`  <br>Código: ${estoque[index].codigo}<br>
+                                        Nome: ${estoque[index].nome}<br>
+                                        Quantidade: ${estoque[index].quant} <br><br>`
+                
+                
+            }
+    }
+            
+</script>

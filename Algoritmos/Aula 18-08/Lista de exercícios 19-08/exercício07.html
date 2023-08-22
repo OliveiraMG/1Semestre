@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ki</title>
+</head>
+<body>
+
+    Qual o nome do guerreiro?<br>
+    <input id="in_nome"><br><br>
+
+    Qual o valor do ki normal?<br>
+    <input id="in_ki"><br><br>
+
+    <button onclick="ki()">Ver ki em cada forma!</button>
+
+</body>
+</html>
+
+<script>
+
+    function ki() {
+        alert(`Olá ${in_nome.value} seu Ki no modo Super Sayajin é ${Number(in_ki.value) * 50}`)
+        alert(`Olá ${in_nome.value} seu Ki no modo Super Sayajin 2 é ${Number(in_ki.value) * 100}`)
+    }
+
+</script>

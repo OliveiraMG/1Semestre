@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estações do ano</title>
+</head>
+<body>
+    Qual estação do ano você escolhe?<br>
+    <select id="sel_estacao" onchange="ver_estacao()">
+        <option value="">- Escolha a estação -</option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Verão</option>
+        <option value="https://i1.wp.com/www.guiaestudo.com.br/wp-content/uploads/2019/03/Primavera.jpg">Primavera</option>
+        <option value="https://drarobertapansera.com.br/wp-content/uploads/2021/03/Outono_100x667px.jpg">Outono</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/inverno.jpg">Inverno</option>
+    </select><br><br>
+    <img src="" id="img_estacao" style="height: 200px;">
+</body>
+</html>
+<script>
+    function ver_estacao() {
+        var imgest = sel_estacao.value
+        img_estacao.src = `${imgest}`
+    }
+</script>

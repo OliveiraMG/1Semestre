@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bairros</title>
+</head>
+<body>
+    Adicione o bairro que você já morou:<br><br>
+    <input placeholder="Bairro" id="in_bairrosM"><br><br>
+    <button onclick="cadastrar()">Cadastrar Bairro</button><br><br>
+    
+    Digite um número correspondente a ordem dos bairros que você inseriu:<br><br>
+    <input placeholder="Moradia" id="in_numero"><br><br>
+    <button onclick="relembrar()">Relembrar Moradia</button><br><br>
+    <div id="div_out"></div>
+</body>
+</html>
+
+<script>
+    var bairro = []
+    
+    function cadastrar() {
+        bairro.push(in_bairrosM.value)
+    }
+    
+    function relembrar() {
+        var bairroMorou = in_bairrosM
+        var numero = Number(in_numero.value)
+        var frase = ''
+        
+        for(indice = 0; indice < bairro.length; indice++) {
+            
+            if (numero > bairro.length) {
+    
+                frase = `Você ainda não morou no ${numero}° bairro`
+    
+            } else {
+                frase = `O bairro escolhido é ${bairro[numero - 1]}`
+    
+            }
+
+        }
+        div_out.innerHTML = frase
+    }
+</script>

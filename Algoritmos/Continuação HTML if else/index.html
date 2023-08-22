@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo terreno</title>
+</head>
+<body>
+    <h1>Coloque aqui o comprimento e largura do terreno</h1>
+    <input id="in_comprimento"><br><br>
+    <input id="in_largura"><br><br>
+
+    <button onclick="calcular()">Calcule o terreno inicial</button><br><br>
+
+    <div id="id_terrenoI"></div>
+
+    <button onclick="calcular2()">Calcule o terreno final</button><br><br>
+
+    <div id="id_terrenoF"></div>
+    
+</body>
+</html>
+
+<script>
+    function calcular() {
+         var comprimento = Number(in_comprimento.value)
+         var largura = Number (in_largura.value)
+
+         var terreno0 = comprimento * largura 
+    }
+
+    function calcular2() {
+        var comprimento = Number(in_comprimento.value)
+        var largura = Number (in_largura.value)
+
+        var terreno0 = comprimento * largura 
+        var terreno1 = terreno0 * 0.8
+
+    id_terrenoI.innerHTML = `Valor do terreno inicial ${terreno0}`
+    id_terrenoF.innerHTML = `Valor do terreno Final ${terreno1}`
+    }
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amostragens</title>
+</head>
+
+<body>
+    Limite inferior:<br>
+    <input id="in_inferior"><br>
+    Limite superior:<br>
+    <input id="in_superior"><br>
+    Divisibilidade:<br>
+    <input id="in_divisivel"><br>
+    <button onclick="contar()">Contar</button>
+    <div id="div_out"></div>
+
+</body>
+
+</html>
+<script>
+    function contar() {
+        div_out.innerHTML = ''
+        var inferior = Number(in_inferior.value)
+        var superior = Number(in_superior.value)
+        var divisibilidade = Number(in_divisivel.value)
+
+        if (superior >= 100) {
+            alert('O limite superior deve ser menor que 100')
+        } else if (inferior <= 1) {
+            alert('O limite inferior deve ser maior que 1')
+        } else if (divisibilidade < 3 || divisibilidade > 10) {
+            alert('O número de divisibilidade deve estar entre 3 e 10')
+        } else {
+
+            for (var contador = inferior; contador <= superior; contador++) {
+                if (contador % divisibilidade == 0) {
+                    div_out.innerHTML += `${contador}<br>`
+                }
+            }
+        }
+
+    }
+</script>
